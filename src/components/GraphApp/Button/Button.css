@@ -1,0 +1,95 @@
+
+/*.btn{
+  
+  background-color: #e9e9e9;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: -6px -6px 9px 0 #fff ,
+               6px 6px 9px 0 rgba(0,0,0, 0.4);
+  overflow: hidden;
+}*/
+.btn {
+  /* сброс стилей */
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  
+  
+  /* переопределение стилей для ссылок */
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+
+  /* небольшие вертикальные отступы */
+  margin: 2px 0;
+
+  /* невидимая рамка */
+
+  border: solid 2px transparent;
+  border-radius: 5px;
+
+  /* для установки размеров используем паддинги */
+  padding: 0.5em 1em;
+
+  /* контрастные цвета */
+  color: #ffffff;
+  background-color: #9a83a3;
+}
+
+.DataInputButton{
+  width: 50px;
+  height: 50px;
+}
+
+.wrapperNav {
+  align-self: center;
+  width: 50px;
+  height: 50px;
+}
+.btn:hover{
+  border-radius: 5px;
+  border: crimson 2px;
+}
+.btn:active{
+background: #9a83a3;
+box-shadow: inset 7px 7px 14px #917b99, 
+            inset -7px -7px 14px #a38bad;
+}
+/*
+.btnA {
+  position: relative;
+  padding: 10px 15px;
+  background-color: #7CC6fE;
+  border: none;
+  color: #FFF;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btnA:hover {
+  background-color: #70B4E6;
+}
+
+.btnA[disabled] {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.btnA.active {
+  background-color: #23C9FF;
+  border: 1px solid #5EB2F2;
+  box-shadow: 0px 0 2px 0px #C0C0C0;
+}
+
+.btnA.invert {
+  background-color: #FFF;
+  color: #000;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+*/
