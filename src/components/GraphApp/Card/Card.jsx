@@ -12,11 +12,11 @@ const Card = ({
 
   const classes = classNames(
     className,
-    { CardGraphApp: attrs.CardGraphApp },
+    { wrapperGraphApp: attrs.wrapperGraphApp },
     { wrapperGraphs: attrs.wrapperGraphs },
-    { wrapperData: attrs.wrapperData },
-    { DataInput: attrs.DataInput },
-    { wrapperArticle: attrs.wrapperArticle },
+    { wrapperGraphData: attrs.wrapperGraphData },
+    { wrapperChips: attrs.wrapperChips },
+    { innerChips: attrs.innerChips },
 
   );
 

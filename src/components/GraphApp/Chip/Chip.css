@@ -1,0 +1,59 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px;
+  background-color: #4BC0C0;
+  border-radius: 8px;
+  margin: 0 5px;
+  max-width: 300px;
+  overflow: hidden;
+  cursor: pointer;
+  height: 50px;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.06), 
+  0px 3px 8px 1px rgba(0, 0, 0, 0.06) , 
+  0px 6px 16px 1px rgba(0, 0, 0, 0.06) ;
+   border-width: 2px;
+    border-style: solid;
+    border-color: #FFF;
+    border-image: initial;
+}
+
+.chip.active {
+  background-color: #D6351E;
+}
+
+.chipIcon {
+  width: 24px;
+  height: 24px;
+  background-color: rgba(0, 0, 0, .4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 2px;
+  color: #FFF;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.chipClose:hover {
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.chipText {
+  font-weight: 600;
+  margin: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.closeSvg{
+  width: 60%;
+  height: 60%;
+}
+.closeSvg:hover{
+  width: 70%;
+  height: 70%;
+  color: #fff;
+}

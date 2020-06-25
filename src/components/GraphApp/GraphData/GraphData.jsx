@@ -1,32 +1,17 @@
 import React from 'react';
-import './GraphData.css';
-import Card from '../Card/Card';
-import Button from '../Button/Button';
-import ArticleProvider from '../context/aricleContext';
-import Articles from '../containers/Articles';
-import AddArticle from '../AddArticle/AddArticle';
+import ChipProvider from '../context/ChipContext';
+import Chips from '../containers/Chips';
+import AddGraph from '../AddGraph/AddGraph';
+import Card from '../Card/Card'
+
 const GraphData = (props) => {
   return(
-    <div className = 'wrapperGraphData'>
-     {/*<div className = 'wrapperDataInput'>
-      <Card DataInput />
-      <Button DataInputButton/>
-     </div>  
-     <div   className ='graphDatalist'>  
-
-      <Card wrapperData/>
-      <Card wrapperData/>
-  </div>*/}
-      <ArticleProvider>
-      <AddArticle />
-      <Articles />
-      </ArticleProvider>
-
-
-
-     </div>
-
-
+    <Card wrapperGraphData>
+      <ChipProvider>
+      <AddGraph />
+      <Chips />
+      </ChipProvider>
+    </Card>
   );
 };
 

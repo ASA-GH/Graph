@@ -1,17 +1,15 @@
 import React from 'react';
-import GraphDataContainer from './GraphData/GraphDataContainer';
-import GraphsContainer from './Graphs/GraphsContainer';
-import Card from './Card/Card';
-
+import GraphData from './GraphData/GraphData';
+import Graphs from './Graphs/Graphs';
+import  Card from './Card/Card'
 
 const GraphApp = (props) => {
   return (
-      <Card CardGraphApp >
-        <GraphDataContainer />
-        <GraphsContainer /> 
+      <Card wrapperGraphApp >
+      <GraphData />
+      <Graphs /> 
       </Card> 
   )
-}
-
-export default GraphApp;
+  }
+  export default GraphApp;
 

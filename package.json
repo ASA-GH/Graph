@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
+    "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
     "faker": "^4.1.0",
     "file-loader": "^6.0.0",
@@ -12,6 +13,8 @@
     "npm": "^6.14.5",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-chartjs-2": "^2.9.0",
+    "react-charts": "^2.0.0-beta.7",
     "react-context-hook": "^2.2.0",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
