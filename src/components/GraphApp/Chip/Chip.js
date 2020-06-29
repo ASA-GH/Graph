@@ -1,16 +1,12 @@
 import React from "react"
 import './Chip.css'
-import Close from '../ikonate/svg/close.svg'
-
+import DeleteChip from '../DeleteChip/DeleteChip'
 
 
 const Chip = ({ Chip }) => (
 <div className='chip' >
   <span className="chipText">{Chip.title}</span>
-  <span className="chipClose" /*onClick={onCloseClickAction}*/>
-      <img className ='closeSvg' src ={Close} alt='x'/>
-  </span>
-    
+  <DeleteChip/>
 </div>
 
 )

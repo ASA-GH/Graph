@@ -1,7 +1,7 @@
 import React from 'react';
 import {Line} from 'react-chartjs-2'; 
 import Card from '../Card/Card'
-const data = {
+const wwww = {
   labels: [100, 200, 300, 400, 600, 700, 800, 900, 1000],
   datasets: [
     {
@@ -73,7 +73,7 @@ const data = {
   
       return (
         <Card wrapperGraphs>
-          <Line  data={data}  options={{ maintainAspectRatio: false }}/>
+          <Line  data={wwww}  options={{ maintainAspectRatio: false }}/>
         </Card>
       );
  

@@ -23,20 +23,6 @@
   background-color: #D6351E;
 }
 
-.chipIcon {
-  width: 24px;
-  height: 24px;
-  background-color: rgba(0, 0, 0, .4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  padding: 2px;
-  color: #FFF;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
 .chipClose:hover {
   background-color: rgba(0, 0, 0, .6);
 }
