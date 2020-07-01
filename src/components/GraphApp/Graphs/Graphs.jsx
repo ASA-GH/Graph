@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from "react";
 import {Line} from 'react-chartjs-2'; 
 import Card from '../Card/Card'
+import { ChipContext } from "../context/ChipContext";
+
 const wwww = {
   labels: [100, 200, 300, 400, 600, 700, 800, 900, 1000],
   datasets: [
@@ -69,11 +71,26 @@ const wwww = {
     }
   ]
 };
+
+
   const Graphs = (props) => {
-  
+
+      const { chips } = useContext(ChipContext);      
+
+      const createData = (chips) =>{ 
+        let data = {
+          labels: [100, 200, 300, 400, 600, 700, 800, 900, 1000],
+          datasets: []
+        };
+        chips.map(chip => (
+          data.datasets.push(chip.data)
+        ))
+        return data;
+      }
+
       return (
-        <Card wrapperGraphs>
-          <Line  data={wwww}  options={{ maintainAspectRatio: false }}/>
+        <Card wrapperGraphs>      
+          <Line  data={createData(chips)}  options={{ maintainAspectRatio: false }}/>
         </Card>
       );
  
