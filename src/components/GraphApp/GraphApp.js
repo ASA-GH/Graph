@@ -1,5 +1,4 @@
 import React from 'react';
-import GraphData from './GraphData/GraphData';
 import Graphs from './Graphs/Graphs';
 import Card from './Card/Card'
 import AddGraph from './AddGraph/AddGraph'
