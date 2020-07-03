@@ -6,14 +6,8 @@ import Close from '../ikonate/svg/close.svg'
 
 const DeleteChip = () => {
   const { dispatch } = useContext(ChipContext)
-  const [Chip, setChip] = useState()
+  const [Chip] = useState()
 
-  const handleChipData = e => {
-    setChip({
-      ...Chip,
-      [e.target.id]: e.target.value,
-    })
-  }
 
   const DeleteChipAction = e => {
     e.preventDefault()

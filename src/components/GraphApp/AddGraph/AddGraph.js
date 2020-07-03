@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react"
+
 import './AddGraph.css';
 import  {ChipContext}  from '../context/ChipContext';
 import Puls from '../ikonate/svg/plus.svg';
@@ -13,10 +14,9 @@ const AddGraph = () => {
       [e.target.id]: e.target.value,
     })
   }
-
   const addNewChip = e => {
-    e.preventDefault()
-    dispatch({ type: "LOAD_DATA", chip: Chip })
+    e.preventDefault();
+    dispatch({ type: "ADD_CHIP", chip: Chip });
   }
 
   return (

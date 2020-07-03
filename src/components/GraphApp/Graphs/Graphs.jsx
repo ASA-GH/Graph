@@ -75,7 +75,7 @@ const wwww = {
 
   const Graphs = (props) => {
 
-      const { chips } = useContext(ChipContext);      
+      /*const { chips } = useContext(ChipContext);     
 
       const createData = (chips) =>{ 
         let data = {
@@ -86,11 +86,11 @@ const wwww = {
           data.datasets.push(chip.data)
         ))
         return data;
-      }
+      }*/ 
 
       return (
         <Card wrapperGraphs>      
-          <Line  data={createData(chips)}  options={{ maintainAspectRatio: false }}/>
+          <Line  data={/*createData(chips)*/wwww}  options={{ maintainAspectRatio: false }}/>
         </Card>
       );
  
