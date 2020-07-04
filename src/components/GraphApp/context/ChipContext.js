@@ -4,7 +4,6 @@ export const ChipContext = createContext()
 
 const ChipProvider = ({ children }) => {
   const [chips, dispatch] = useReducer(reducer, [
-    
   ])
 
   return (

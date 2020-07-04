@@ -16,7 +16,7 @@ const AddGraph = () => {
   }
   const addNewChip = e => {
     e.preventDefault();
-    dispatch({ type: "ADD_CHIP", chip: Chip });
+    dispatch({ type: "LOAD_CHIP", title: Chip.title });
   }
 
   return (

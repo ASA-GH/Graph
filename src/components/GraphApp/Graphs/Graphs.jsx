@@ -47,8 +47,8 @@ const wwww = {
       pointRadius: 10,
       pointHitRadius: 10,
       data: [60, 80, 60, 50, 80, 70, 45, 70, 40]
-    },
-    {
+    }
+    /*{
       label: '3',
       fill: false,
       lineTension: 0.1,
@@ -68,7 +68,7 @@ const wwww = {
       pointRadius: 10,
       pointHitRadius: 10,
       data: [80, 40, 60, 70, 40, 40, 80, 50, 50]
-    }
+    }*/
   ]
 };
 
