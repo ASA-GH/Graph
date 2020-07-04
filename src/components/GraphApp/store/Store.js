@@ -4,5 +4,5 @@ import createSagaMiddleware from 'redux-saga'
 import { DataWatcher } from './saga'
 
 const sagaMiddleware = createSagaMiddleware();
-export const Store = createStore(reducer,applyMiddleware(sagaMiddleware));
+export const store = createStore(reducer,applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(DataWatcher);

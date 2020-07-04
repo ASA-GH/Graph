@@ -1,20 +1,20 @@
-import React, { useContext } from "react";
-import { ChipContext } from "../context/ChipContext";
+import React from "react";
 import Chip from '../Chip/Chip';
 import Card from '../Card/Card'
 import '../Chip/Chip.css'
+import { useSelector } from 'react-redux'
 
 const Chips = () => {
 
-const { chips } = useContext(ChipContext);
-
+  const chips = useSelector(state => state)
   return (
     <Card  wrapperChips >
       {/* <button className='buttonChips'>+</button>
       <Card  innerChips >*/}
-      {chips.map(chip => (
+       {
+       chips.map(chip => (
         <Chip key={chip.id} Chip={chip} />
-      ))}
+      ))} 
       {/*</Card>
       <button className='buttonChips'>-</button>*/}
     </Card>

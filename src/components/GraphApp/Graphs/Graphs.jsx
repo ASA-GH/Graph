@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import {Line} from 'react-chartjs-2'; 
 import Card from '../Card/Card'
-import { ChipContext } from "../context/ChipContext";
+import { useSelector } from 'react-redux'
 
 const wwww = {
   labels: [100, 200, 300, 400, 600, 700, 800, 900, 1000],
@@ -74,8 +74,7 @@ const wwww = {
 
 
   const Graphs = (props) => {
-
-      /*const { chips } = useContext(ChipContext);     
+    const chips = useSelector(state => state)
 
       const createData = (chips) =>{ 
         let data = {
@@ -86,11 +85,11 @@ const wwww = {
           data.datasets.push(chip.data)
         ))
         return data;
-      }*/ 
+      }
 
       return (
         <Card wrapperGraphs>      
-          <Line  data={/*createData(chips)*/wwww}  options={{ maintainAspectRatio: false }}/>
+          <Line  data={createData(chips)}  options={{ maintainAspectRatio: false }}/>
         </Card>
       );
  

@@ -2,16 +2,15 @@ export const reducer = (state = [] , action) => {
  console.log(action.type)
   switch (action.type) {   
     case "ADD_CHIP":{
-      let array = [...state];
-      if (action.chip){
+       let array = [...state];
+       
         let chip = {
           id: Math.random(),
           title: action.title,
           data: action.data
         };
         array.push(chip);
-      }
-      return array;
+        return array;
     }
     case "DEL_CHIP":{
       let array = [...state];

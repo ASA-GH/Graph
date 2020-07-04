@@ -1,7 +1,7 @@
 import { takeLatest, put, call } from 'redux-saga/effects'
 
-//dispatch({ type: "LOAD_CHIP", chip: Chip });
 const Load = async (title) => {
+  console.log(title);
    return {
     label: '3',
     fill: false,

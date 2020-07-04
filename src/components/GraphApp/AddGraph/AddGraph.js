@@ -1,12 +1,11 @@
-import React, { useState, useContext } from "react"
-
+import React, { useState} from "react"
+import { useDispatch } from 'react-redux'
 import './AddGraph.css';
-import  {ChipContext}  from '../context/ChipContext';
 import Puls from '../ikonate/svg/plus.svg';
 
 const AddGraph = () => {
-  const { dispatch } = useContext(ChipContext)
-  const [Chip, setChip] = useState()
+  const dispatch = useDispatch()
+  const [Chip, setChip] = useState(0)
 
   const handleChipData = e => {
     setChip({
@@ -17,6 +16,7 @@ const AddGraph = () => {
   const addNewChip = e => {
     e.preventDefault();
     dispatch({ type: "LOAD_CHIP", title: Chip.title });
+    console.log("addNewChip");
   }
 
   return (
