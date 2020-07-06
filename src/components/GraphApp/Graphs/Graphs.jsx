@@ -77,13 +77,38 @@ const wwww = {
     const chips = useSelector(state => state)
 
       const createData = (chips) =>{ 
+        console.log(chips);
         let data = {
           labels: [100, 200, 300, 400, 600, 700, 800, 900, 1000],
           datasets: []
         };
-        chips.map(chip => (
-          data.datasets.push(chip.data)
-        ))
+        chips.map((chip) => {
+          let array = chip.data.length ? chip.data[0].data : [];
+          console.log(array)
+          let item = {
+            label: chip.title,
+            data: array,
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "#f27173",
+            borderColor: "#f27173",
+            borderCapStyle: "butt",
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            pointBorderColor: "#f27173",
+            pointBackgroundColor: "#f27173",
+            pointBorderWidth: 10,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "#f27173",
+            pointHoverBorderColor: "#f27173",
+            pointHoverBorderWidth: 2,
+            pointRadius: 10,
+            pointHitRadius: 10,
+          };
+
+          data.datasets.push(item);
+        })
         return data;
       }
 
