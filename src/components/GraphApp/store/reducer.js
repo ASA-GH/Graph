@@ -1,3 +1,5 @@
+import GetColor from './RandomColor'
+
 export const reducer = (state = [] , action) => {
  console.log(action.type)
   switch (action.type) {   
@@ -7,7 +9,8 @@ export const reducer = (state = [] , action) => {
         let chip = {
           id: Math.random(),
           title: action.title,
-          data: action.data
+          data: action.data,
+          color: GetColor()
         };
         array.push(chip);
         return array;

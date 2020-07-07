@@ -9,14 +9,12 @@ const Chips = () => {
   const chips = useSelector(state => state)
   return (
     <Card  wrapperChips >
-      <button className='buttonChips'>+</button>
       <Card  innerChips >
        {
        chips.map(chip => (
         <Chip key={chip.id} Chip={chip} />
       ))} 
       </Card>
-      <button className='buttonChips'>-</button>
     </Card>
   );
 };

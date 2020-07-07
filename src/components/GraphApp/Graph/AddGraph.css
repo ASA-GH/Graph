@@ -28,7 +28,7 @@
    0px 2px 8px 3px rgba(0, 0, 0, 0.06) , 
    0px 3px 16px 3px rgba(0, 0, 0, 0.06) ;
    padding: 4px;
-   border-radius: 8px;
+   border-radius: 4px;
    width: 50px;
    height: 50px;
    background: #81d742;
@@ -60,7 +60,7 @@
   0px 2px 8px 3px rgba(0, 0, 0, 0.06) , 
   0px 3px 16px 3px rgba(0, 0, 0, 0.06) ;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: 4px;
   width: 50px;
   height: 50px;
   background: #81d742;
@@ -93,7 +93,7 @@
   0px 2px 8px 3px rgba(0, 0, 0, 0.06) , 
   0px 3px 16px 3px rgba(0, 0, 0, 0.06) ;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: 4px;
   width: 50px;
   height: 50px;
   background: #47d742;
@@ -125,7 +125,7 @@
   inset 6px 6px 15px #32972e, 
   inset -6px -6px 15px #5cff56;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: 4px;
   width: 50px;
   height: 50px;
   background: #47d742;
@@ -156,7 +156,7 @@
     border-style: solid;
     border-color: rgb(252, 251, 250);
     border-image: initial;
-    border-radius: 8px;
+    border-radius: 4px;
     outline: none;
     size: 4em;
 }

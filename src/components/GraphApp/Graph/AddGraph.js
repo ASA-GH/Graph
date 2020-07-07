@@ -16,7 +16,6 @@ const AddGraph = () => {
   const addNewChip = e => {
     e.preventDefault();
     dispatch({ type: "LOAD_CHIP", title: Chip.title });
-    console.log("addNewChip");
   }
 
   return (
@@ -32,7 +31,7 @@ const AddGraph = () => {
       </div>
        <div/>
       <button className='buttonAddGraph'>
-        <img className ='plusSvg' src ={Puls} alt='+'/>
+        <img className ='plusSvg' src ={Puls} alt='+' />
       </button>
     </form>
   )
