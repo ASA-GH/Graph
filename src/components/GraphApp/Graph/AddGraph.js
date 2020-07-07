@@ -13,6 +13,7 @@ const AddGraph = () => {
       [e.target.id]: e.target.value,
     })
   }
+  
   const addNewChip = e => {
     e.preventDefault();
     dispatch({ type: "LOAD_CHIP", title: Chip.title });
@@ -30,7 +31,7 @@ const AddGraph = () => {
       />
       </div>
        <div/>
-      <button className='buttonAddGraph'>
+      <button className='buttonAddGraph' disabled={!Chip.title}>
         <img className ='plusSvg' src ={Puls} alt='+' />
       </button>
     </form>

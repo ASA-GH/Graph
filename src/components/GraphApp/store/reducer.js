@@ -5,7 +5,6 @@ export const reducer = (state = [] , action) => {
   switch (action.type) {   
     case "ADD_CHIP":{
        let array = [...state];
-       
         let chip = {
           id: Math.random(),
           title: action.title,
@@ -18,6 +17,10 @@ export const reducer = (state = [] , action) => {
     case "DEL_CHIP":{
       let array = [...state];
       array.splice(array.indexOf(action.chip), 1);
+      return array;
+    }
+    case "ERROR_RESP":{
+      let array = [...state];
       return array;
     }
     default:

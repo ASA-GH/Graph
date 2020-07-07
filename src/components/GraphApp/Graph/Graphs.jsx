@@ -83,11 +83,10 @@ const wwww = {
           datasets: []
         };
         chips.map((chip) => {
-          let array = chip.data.length ? chip.data[0].data : [];
-          console.log(array)
+         if (chip.data.length){
           let item = {
             label: chip.title,
-            data: array,
+            data: chip.data[0].data,
             fill: false,
             lineTension: 0.1,
             backgroundColor: chip.color,
@@ -108,6 +107,7 @@ const wwww = {
           };
 
           data.datasets.push(item);
+        }
         })
         return data;
       }
