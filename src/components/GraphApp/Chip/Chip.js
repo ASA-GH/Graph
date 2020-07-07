@@ -1,6 +1,6 @@
 import React from "react"
 import './Chip.css'
-import DeleteChip from '../DeleteChip/DeleteChip'
+import DeleteChip from './DeleteChip'
 
 
 const Chip = ({ Chip }) => (

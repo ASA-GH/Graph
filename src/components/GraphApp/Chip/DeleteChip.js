@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import './DeleteChip.css';
+import './Chip.css';
 import Close from '../ikonate/svg/close.svg'
 import { useDispatch } from 'react-redux'
 

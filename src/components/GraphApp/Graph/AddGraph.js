@@ -25,7 +25,7 @@ const AddGraph = () => {
       <input
         type="text"
         id="title"
-        placeholder="   -Graph-"
+        placeholder="-Graph-"
         onChange={handleChipData}
         className = 'inputAddGraph'
       />

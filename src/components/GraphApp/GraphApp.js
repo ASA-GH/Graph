@@ -1,8 +1,8 @@
 import React from 'react';
-import Graphs from './Graphs/Graphs';
+import Graphs from './Graph/Graphs';
 import Card from './Card/Card'
-import AddGraph from './AddGraph/AddGraph'
-import Chips from './containers/Chips'
+import AddGraph from './Graph/AddGraph'
+import Chips from './Chip/Chips'
 
 const GraphApp = (props) => {
   return (
