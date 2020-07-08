@@ -1,7 +1,6 @@
 import React from "react"
 import './Chip.css'
 import DeleteChip from './DeleteChip'
-import { GetColor } from "../store/RandomColor";
 
 
 const Chip = ({ Chip }) => (

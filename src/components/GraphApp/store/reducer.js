@@ -9,7 +9,9 @@ export const reducer = (state = [] , action) => {
           id: Math.random(),
           title: action.title,
           data: action.data,
-          color: GetColor()
+          color: GetColor(),
+          error: false
+
         };
         array.push(chip);
         return array;
@@ -21,7 +23,15 @@ export const reducer = (state = [] , action) => {
     }
     case "ERROR_RESP":{
       let array = [...state];
-      return array;
+        let chip = {
+          id: Math.random(),
+          title: action.title,
+          data: action.data,
+          color: GetColor(),
+          error: true
+      };
+        array.push(chip);
+        return array;
     }
     default:
       return state;

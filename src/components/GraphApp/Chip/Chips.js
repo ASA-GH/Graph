@@ -11,9 +11,11 @@ const Chips = () => {
     <Card  wrapperChips >
       <Card  innerChips >
        {
-       chips.map(chip => (
+       chips.map(chip =>(chip.error ? 
+        alert('Error: '+ chip.title)
+        :
         <Chip key={chip.id} Chip={chip} />
-      ))} 
+       ))} 
       </Card>
     </Card>
   );
