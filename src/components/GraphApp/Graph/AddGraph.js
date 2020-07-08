@@ -1,24 +1,22 @@
 import React, { useState} from "react"
 import { useDispatch } from 'react-redux'
 import './AddGraph.css';
-import Puls from '../ikonate/svg/plus.svg';
+import Puls from '../Ikonate/svg/Plus.svg';
+import {LOAD_CHIP} from '../Constants'
 
 const AddGraph = () => {
   const dispatch = useDispatch()
   const [Chip, setChip] = useState(0)
-
   const handleChipData = e => {
     setChip({
       ...Chip,
       [e.target.id]: e.target.value,
     })
   }
-  
   const addNewChip = e => {
     e.preventDefault();
-    dispatch({ type: "LOAD_CHIP", title: Chip.title });
+    dispatch({ type: LOAD_CHIP, title: Chip.title });
   }
-
   return (
     <form onSubmit={addNewChip} className='wrapperAddGraph'>
      <div className='wrapperInputAddGraph'>

@@ -6,14 +6,14 @@ import Chips from './Chip/Chips'
 
 const GraphApp = (props) => {
   return (
-      <Card wrapperGraphApp >
-        <Card wrapperGraphData>
-         <AddGraph />
-         <Chips />
-        </Card>
-        <Graphs /> 
-      </Card> 
+    <Card wrapperGraphApp >
+      <Card wrapperGraphData>
+        <AddGraph />
+        <Chips />
+      </Card>
+      <Graphs />
+    </Card>
   )
-  }
-  export default GraphApp;
+}
+export default GraphApp;
 

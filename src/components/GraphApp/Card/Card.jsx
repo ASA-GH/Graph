@@ -7,9 +7,7 @@ const Card = ({
   className,
   tag: Tag,
   ...attrs
-
 }) => {
-
   const classes = classNames(
     className,
     { wrapperGraphApp: attrs.wrapperGraphApp },
@@ -17,12 +15,10 @@ const Card = ({
     { wrapperGraphData: attrs.wrapperGraphData },
     { wrapperChips: attrs.wrapperChips },
     { innerChips: attrs.innerChips },
-
   );
 
   return (
-    <Tag className={classes} {...attrs}  />
-  
+    <Tag className={classes} {...attrs} />
   );
 };
 
@@ -30,6 +26,7 @@ Card.propTypes = {
   className: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
 };
+
 Card.defaultProps = {
   className: '',
   tag: 'div',

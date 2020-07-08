@@ -8,14 +8,14 @@ const Chips = () => {
 
   const chips = useSelector(state => state)
   return (
-    <Card  wrapperChips >
-      <Card  innerChips >
-       {
-       chips.map(chip =>(chip.error ? 
-        alert('Error: '+ chip.title)
-        :
-        <Chip key={chip.id} Chip={chip} />
-       ))} 
+    <Card wrapperChips >
+      <Card innerChips >
+        {
+          chips.map(chip => (!chip.error ?
+            <Chip key={chip.id} Chip={chip} />
+            :
+            alert('Error: ' + chip.title)
+          ))}
       </Card>
     </Card>
   );
