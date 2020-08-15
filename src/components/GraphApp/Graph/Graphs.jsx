@@ -60,12 +60,16 @@ const data = {
   dataset: [
     {
     label: 'test1',
-    data: [40, 50, 30, 40, 70]
+    data: [15, 50, 30, 40, 15, 50, 15]
     },
     {
-      label: 'test2',
-      data: [45, 55, 35, 45, 60]
-      }
+    label: 'test2',
+    data: [45, 55, 35, 45, 60, 45, 60]
+    },
+    {
+    label: 'test3',
+    data: [25, 35, 15, 25, 40, 25, 40]
+    }
   ]
 }
 
@@ -78,9 +82,12 @@ const data = {
   
     // will be called initially and on every data change
     useEffect(() => {
+      const svg = select(svgRef.current);
+
+
+      
 
       data.dataset.map((item) => {
-      const svg = select(svgRef.current);
       const svgContent = svg.select(".content");
       const { width, height } =
         dimensions || wrapperRef.current.getBoundingClientRect();
@@ -109,6 +116,8 @@ const data = {
    
         svgContent
         .selectAll(".myLine")
+        .append('svg')
+        .enter()
         .data([item.data])
         .join("path")
         .attr("class", "myLine")
@@ -118,12 +127,14 @@ const data = {
   
       svgContent
         .selectAll(".myDot")
+        .append('svg')
+        .enter()
         .data(item.data)
         .join("circle")
         .attr("class", "myDot")
         .attr("stroke", "black")
-        .attr("r", 4)
-        .attr("fill", "orange")
+        .attr("r", 3)
+        .attr("fill", "black")
         .attr("cx", (value, index) => xScale(index))
         .attr("cy", yScale);
    
