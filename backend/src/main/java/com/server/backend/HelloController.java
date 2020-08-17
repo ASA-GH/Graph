@@ -1,19 +1,16 @@
 package com.server.backend;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+        import org.springframework.util.MultiValueMap;
+        import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HelloController {
 
     private int sec = 0;
 
-    @RequestMapping(value = "/dataset/{id}", method = RequestMethod.GET)
-    public String getDynamicUriValue(@PathVariable String id) {
-
-        final Generator generator = new Generator(id, sec);
+    @RequestMapping(value = "/dataset", method = RequestMethod.GET)
+    public String getDynamicUriValue(@RequestParam MultiValueMap<String, String> queryMap) {
+        final Generator generator = new Generator(queryMap.get("id"), sec);
         sec++;
         return generator.Run();
     }
@@ -23,7 +20,6 @@ public class HelloController {
         return "home";
     }
 }
-
 
 
 
