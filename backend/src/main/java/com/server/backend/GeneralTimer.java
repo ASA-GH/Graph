@@ -5,13 +5,16 @@ import java.util.TimerTask;
 
 public class GeneralTimer {
     Timer timer;
-    public GeneralTimer(int seconds) {
+    Manager manager;
+    public GeneralTimer(int seconds, Manager manager) {
+        this.manager = manager;
         timer = new Timer();
-        timer.schedule(new RemindTask(), seconds*1000);
+        timer.schedule(new RemindTask(), seconds);
     }
 
     class RemindTask extends TimerTask {
         public void run() {
+            manager.Update();
             System.out.println("Time's up!");
         }
     }
