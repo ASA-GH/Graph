@@ -2,7 +2,7 @@ import React, { useState} from "react"
 import { useDispatch } from 'react-redux'
 import './AddGraph.css';
 import Puls from '../Ikonate/svg/Plus.svg';
-import {LOAD_CHIP} from '../Constants'
+import {IS_CONTAINS} from '../Constants'
 
 const AddGraph = () => {
   const dispatch = useDispatch()
@@ -15,7 +15,7 @@ const AddGraph = () => {
   }
   const addNewChip = e => {
     e.preventDefault();
-    dispatch({ type: LOAD_CHIP, title: Chip.title });
+    dispatch({ type: IS_CONTAINS, title: Chip.title });
   }
   return (
     <form onSubmit={addNewChip} className='wrapperAddGraph'>

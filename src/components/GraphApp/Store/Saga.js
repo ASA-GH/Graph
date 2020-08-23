@@ -1,17 +1,17 @@
 import { takeLatest, put, call } from 'redux-saga/effects'
-import {ERROR_RESP, LOAD_CHIP, ADD_CHIP} from '../Constants'
+import {ERROR_RESP, IS_CONTAINS, ADD_CHIP} from '../Constants'
 
-export function* LoadData(action) {
+export function* IsContains(action) {
   const data = yield call(() => {
-    return fetch('http://localhost:4000/datasets?label=' + action.title)
+    return fetch('http://localhost:8080/contains?label=' + action.title)
       .then(
         (response) => { return response.json(); }
       )
   });
-  yield put({ type: data.length ? ADD_CHIP : ERROR_RESP, title: action.title, data: data });
+  yield put({ type: data.contains == "yes" ? ADD_CHIP : ERROR_RESP, title: action.title});
 }
 
 export function* DataWatcher() {
-  yield takeLatest(LOAD_CHIP, LoadData);
+  yield takeLatest(IS_CONTAINS, IsContains);
 
 }

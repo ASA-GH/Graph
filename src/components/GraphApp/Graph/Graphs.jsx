@@ -22,6 +22,7 @@ import useResizeObserver from "./useResizeObserver";
 const Graphs = (props) => {
 
   const chips = useSelector(state => state)
+  
   const createData = (chips) => {
     let data = {
       dataset: []

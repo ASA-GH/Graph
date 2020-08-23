@@ -16,7 +16,6 @@ export const reducer = (state = [], action) => {
       let chip = {
         id: Math.random(),
         title: action.title,
-        data: action.data,
         color: GetColor(),
         error: false
       };
