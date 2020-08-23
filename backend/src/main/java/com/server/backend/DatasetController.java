@@ -22,9 +22,15 @@ public class DatasetController implements Manager {
     private int scale = 120;
 
     @RequestMapping(value = "/dataset", method = RequestMethod.GET)
-    public String getDynamicUriValue(@RequestParam MultiValueMap<String, String> queryMap) throws Exception {
+    public String getDataset(@RequestParam MultiValueMap<String, String> queryMap) throws Exception {
        final Combine combine = new Combine(queryMap.get("label"), Map.of("scale", (Object)timeList, "data", (Object)stor));
-       return combine.Run();
+       return combine.getDataset();
+    }
+
+    @RequestMapping(value = "/contains", method = RequestMethod.GET)
+    public String isContains(@RequestParam MultiValueMap<String, String> queryMap) throws Exception {
+        final Combine combine = new Combine(queryMap.get("label"), Map.of("labels", (Object)labels));
+        return combine.isContains();
     }
 
     @RequestMapping("/")

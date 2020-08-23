@@ -15,7 +15,23 @@ public class Combine {
         this.context = context;
     }
 
-    public String Run() throws Exception {
+    public String isContains() throws Exception {
+        if (context == null)
+            throw new Exception("wrong context");
+
+        if (!context.containsKey("labels"))
+            throw new Exception("Not enough data in context");
+
+        if (labels == null)
+            throw new Exception("wrong labels");
+
+        List<String> list = (List<String>)context.get("labels");
+        return new JSONObject()
+                .put("contains", (labels.size() >= 1 && list.contains(labels.get(0))) ? "yes" : "no" )
+                .toString();
+    }
+
+    public String getDataset() throws Exception {
         if (context == null)
             throw new Exception("wrong context");
 
