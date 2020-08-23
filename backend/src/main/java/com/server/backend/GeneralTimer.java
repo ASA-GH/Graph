@@ -6,16 +6,15 @@ import java.util.TimerTask;
 public class GeneralTimer {
     Timer timer;
     Manager manager;
-    public GeneralTimer(int seconds, Manager manager) {
+    public GeneralTimer(int delay, int period, Manager manager) {
         this.manager = manager;
-        timer = new Timer();
-        timer.schedule(new RemindTask(), seconds);
+        timer = new Timer(true);
+        timer.schedule(new RemindTask(), delay*1000, period*1000);
     }
 
     class RemindTask extends TimerTask {
         public void run() {
             manager.Update();
-            System.out.println("Time's up!");
         }
     }
     public void Cancel (){

@@ -15,7 +15,7 @@ import java.util.*;
 @RestController
 public class DatasetController implements Manager {
 
-    private GeneralTimer timer = new GeneralTimer(1, this);
+    private GeneralTimer timer = new GeneralTimer(1, 1,this);
     private Map<String, List<String>> stor = new HashMap<>();
     private List<String> labels = Arrays.asList("Amazon", "Microsoft", "LVMH", "Zara", "Facebook", "Software", "Walmart", "Telecom", "Google", "BLP", "Nike");
     private List<String> timeList = new ArrayList<>();
@@ -33,8 +33,6 @@ public class DatasetController implements Manager {
     }
 
     public void Update() {
-
-        System.out.println("!!!!!!");
         LocalTime time = LocalTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         timeList.add(time.format(formatter));
