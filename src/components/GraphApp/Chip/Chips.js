@@ -7,11 +7,12 @@ import { useSelector } from 'react-redux'
 const Chips = () => {
 
   const chips = useSelector(state => state)
+  
   return (
     <Card wrapperChips >
       <Card innerChips >
         {
-          chips.map(chip => (!chip.error ?
+          chips.labels.map(chip => (!chip.error ?
             <Chip key={chip.id} Chip={chip} />
             :
             alert('Error: ' + chip.title)

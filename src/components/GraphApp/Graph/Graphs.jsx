@@ -13,13 +13,23 @@ import {
   zoomTransform
 } from "d3";
 import useResizeObserver from "./useResizeObserver";
-
-
+import Timer from './../Store/Timer'
 
 
 
 
 const Graphs = (props) => {
+ 
+  
+  //   const [counter, setCounter] = useState(0);
+  //   useEffect(() => {
+  //     const timer =
+  //       setInterval(() => setCounter(counter + 1), 1000);
+  //     return () => clearInterval(timer);
+  //   }, [counter]);
+    
+  // console.log({counter})
+
 
   const chips = useSelector(state => state)
   
@@ -57,22 +67,26 @@ const GetLenght = (dataset) => {
   return dataset[0].data.length - 1;
 }
 
-const data = {
-  dataset: [
-    {
-    label: 'test1',
-    data: [15, 50, 30, 40, 15, 50, 15]
-    },
-    {
-    label: 'test2',
-    data: [45, 55, 35, 45, 60, 45, 60]
-    },
-    {
-    label: 'test3',
-    data: [25, 35, 15, 25, 40, 25, 40]
-    }
-  ]
-}
+
+const data = {dataset:chips.data.dataset};
+
+
+// const data = {
+//   dataset: [
+//     {
+//     label: 'test1',
+//     data: [15, 50, 30, 40, 15, 50, 15]
+//     },
+//     {
+//     label: 'test2',
+//     data: [45, 55, 35, 45, 60, 45, 60]
+//     },
+//     {
+//     label: 'test3',
+//     data: [25, 35, 15, 25, 40, 25, 40]
+//     }
+//   ]
+// }
 
 
 
@@ -226,6 +240,7 @@ const data = {
 
   return (
     <Card wrapperGraphs>
+        <Timer/> 
 <div ref={wrapperRef} style={{ marginBottom: "2rem" }}>
         <svg ref={svgRef}>
           <defs>
