@@ -31,24 +31,24 @@ const Graphs = (props) => {
   // console.log({counter})
 
 
-  const chips = useSelector(state => state)
   
-  const createData = (chips) => {
-    let data = {
-      dataset: []
-    };
-    chips.map((chip) => {
-      if (!chip.error) {
-        let item = {
-          label: chip.title,
-          data: chip.data[0].data,
-        };
+  
+  // const createData = (chips) => {
+  //   let data = {
+  //     dataset: []
+  //   };
+  //   chips.map((chip) => {
+  //     if (!chip.error) {
+  //       let item = {
+  //         label: chip.title,
+  //         data: chip.data[0].data,
+  //       };
 
-        data.dataset.push(item);
-      }
-    })
-    return data;
-  };
+  //       data.dataset.push(item);
+  //     }
+  //   })
+  //   return data;
+  // };
 
    // const data = createData(chips);
 const GetMax = (dataset) => {
@@ -68,7 +68,7 @@ const GetLenght = (dataset) => {
 }
 
 
-const data = {dataset:chips.data.dataset};
+// const data = {dataset:chips.data.dataset};
 
 
 // const data = {
@@ -89,118 +89,126 @@ const data = {dataset:chips.data.dataset};
 // }
 
 
+let _state = useSelector(state => state);
+let  dataGraphs = _state[0].data;
+
+// console.log(dataGraphs);
+
+
+
+
 
     const svgRef = useRef();
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);
-    const [currentZoomState, setCurrentZoomState] = useState();
+    // const [currentZoomState, setCurrentZoomState] = useState();
   
     // will be called initially and on every data change
     useEffect(() => {
       const svg = select(svgRef.current);
 
+    const { width, height } =
+      dimensions || wrapperRef.current.getBoundingClientRect();
 
       
-
-      data.dataset.map((item) => {
-      const svgContent = svg.select(".content");
-      const { width, height } =
-        dimensions || wrapperRef.current.getBoundingClientRect();
   
       // scales + line generator
       const xScale = scaleLinear()
-        .domain([0, GetLenght(data.dataset)])
+        .domain([0,  120])
         .range([10, width - 10]);
   
-      if (currentZoomState) {
-        const newXScale = currentZoomState.rescaleX(xScale);
-        xScale.domain(newXScale.domain());
-      }
+      // if (currentZoomState) {
+      //   const newXScale = currentZoomState.rescaleX(xScale);
+      //   xScale.domain(newXScale.domain());
+      // }
   
       const yScale = scaleLinear()
-        .domain([0, GetMax(data.dataset)])
+        .domain([0, 20])
         .range([height - 20, 20]);
   
       const lineGenerator = line()
         .x((d, index) => xScale(index))
         .y(d => yScale(d))
         .curve(curveCardinal);
-  
+        console.log( dataGraphs );
       // render the line
 
+  //     dataGraphs.dataset.map((item) => {
+  //       const svgContent = svg.select(".content");
+       
    
-        svgContent
-        .selectAll(".myLine")
-        .append('svg')
-        .enter()
-        .data([item.data])
-        .join("path")
-        .attr("class", "myLine")
-        .attr("stroke", "black")
-        .attr("fill", "none")
-        .attr("d", lineGenerator);
+  //       svgContent
+  //       .selectAll(".myLine")
+  //       .append('svg')
+  //       .enter()
+  //       .data([item.data])
+  //       .join("path")
+  //       .attr("class", "myLine")
+  //       .attr("stroke", "black")
+  //       .attr("fill", "none")
+  //       .attr("d", lineGenerator);
   
-      svgContent
-        .selectAll(".myDot")
-        .append('svg')
-        .enter()
-        .data(item.data)
-        .join("circle")
-        .attr("class", "myDot")
-        .attr("stroke", "black")
-        .attr("r", 3)
-        .attr("fill", "black")
-        .attr("cx", (value, index) => xScale(index))
-        .attr("cy", yScale);
+  //     svgContent
+  //       .selectAll(".myDot")
+  //       .append('svg')
+  //       .enter()
+  //       .data(item.data)
+  //       .join("circle")
+  //       .attr("class", "myDot")
+  //       .attr("stroke", "black")
+  //       .attr("r", 3)
+  //       .attr("fill", "black")
+  //       .attr("cx", (value, index) => xScale(index))
+  //       .attr("cy", yScale);
    
-     /* svgContent
-        .selectAll(".myLine")
-        .data([data.data])
-        .join("path")
-        .attr("class", "myLine")
-        .attr("stroke", "black")
-        .attr("fill", "none")
-        .attr("d", lineGenerator);
+  //    /* svgContent
+  //       .selectAll(".myLine")
+  //       .data([data.data])
+  //       .join("path")
+  //       .attr("class", "myLine")
+  //       .attr("stroke", "black")
+  //       .attr("fill", "none")
+  //       .attr("d", lineGenerator);
   
-      svgContent
-        .selectAll(".myDot")
-        .data(data.data)
-        .join("circle")
-        .attr("class", "myDot")
-        .attr("stroke", "black")
-        .attr("r", 4)
-        .attr("fill", "orange")
-        .attr("cx", (value, index) => xScale(index))
-        .attr("cy", yScale);
-  */
-      // axes
-      const xAxis = axisBottom(xScale);
-      svg
-        .select(".x-axis")
-        .attr("transform", `translate(0, ${height})`)
-        .call(xAxis);
+  //     svgContent
+  //       .selectAll(".myDot")
+  //       .data(data.data)
+  //       .join("circle")
+  //       .attr("class", "myDot")
+  //       .attr("stroke", "black")
+  //       .attr("r", 4)
+  //       .attr("fill", "orange")
+  //       .attr("cx", (value, index) => xScale(index))
+  //       .attr("cy", yScale);
+  // */
+  //     // axes
+  //     const xAxis = axisBottom(xScale);
+  //     svg
+  //       .select(".x-axis")
+  //       .attr("transform", `translate(0, ${height})`)
+  //       .call(xAxis);
   
-      const yAxis = axisLeft(yScale);
-      svg.select(".y-axis").call(yAxis);
+  //     const yAxis = axisLeft(yScale);
+  //     svg.select(".y-axis").call(yAxis);
   
 
-      // zoom
-      const zoomBehavior = zoom()
-        .scaleExtent([0.5, 5])
-        .translateExtent([
-          [0, 0],
-          [width, height]
-        ])
-        .on("zoom", () => {
-          const zoomState = zoomTransform(svg.node());
-          setCurrentZoomState(zoomState);
-        });
+  //     // zoom
+  //     // const zoomBehavior = zoom()
+  //     //   .scaleExtent([0.5, 5])
+  //     //   .translateExtent([
+  //     //     [0, 0],
+  //     //     [width, height]
+  //     //   ])
+  //     //   .on("zoom", () => {
+  //     //     const zoomState = zoomTransform(svg.node());
+  //     //     setCurrentZoomState(zoomState);
+  //     //   });
 
   
-      svg.call(zoomBehavior);
-    });
-    }, [currentZoomState, data.data, dimensions]);
-  
+  //     // svg.call(zoomBehavior);
+  //   });
+    }, [ dimensions]);
+  // }, [currentZoomState, data.data, dimensions]);
    
  /* const chips = useSelector(state => state)
   const createData = (chips) => {
@@ -243,14 +251,14 @@ const data = {dataset:chips.data.dataset};
         <Timer/> 
 <div ref={wrapperRef} style={{ marginBottom: "2rem" }}>
         <svg ref={svgRef}>
-          <defs>
+          {/* <defs>
             <clipPath id={data.label}>
               <rect x="0" y="0" width="100%" height="100%" />
             </clipPath>
           </defs>
           <g className="content" clipPath={`url(#${data.label})`}></g>
           <g className="x-axis" />
-          <g className="y-axis" />
+          <g className="y-axis" /> */}
         </svg>
       </div>
     </Card>

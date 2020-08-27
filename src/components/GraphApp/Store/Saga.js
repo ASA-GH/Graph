@@ -12,7 +12,18 @@ export function* IsContains(action) {
 }
 export function* LoadData(action) {
   const data = yield call(() => {
-    return fetch('http://localhost:8080/dataset?label=' + action.title)
+    let query = 'http://localhost:8080/dataset';
+
+   if (!action.labels.length){
+     query += '?label=""';
+   }
+
+   for (const [index, value] of action.labels.entries()) {
+      query += (index) ? '&' : '?';
+      query += 'label=' + value.title;
+   }
+
+    return fetch(query)
       .then(
         (response) => { return response.json(); }
       )
@@ -30,10 +41,10 @@ export function* LoadData(action) {
 // }
 
 export function* DataWatcher() {
+  // while (true){
+
   yield takeLatest(IS_CONTAINS, IsContains);
-
+  yield takeLatest(LOAD_DATA, LoadData);
+  
 }
-export function* DataWatcher() {
-  yield takeLatest( LOAD_DATA, LoadData);
-
-}
+// }

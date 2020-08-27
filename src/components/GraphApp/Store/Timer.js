@@ -9,11 +9,13 @@ import {LOAD_DATA} from "./../Constants"
 //  dispatch({ type: LOAD_CHIP, chips: chips });
 //  }, 
 // 1000);
+
 let Timer =()=>{
+const _state = useSelector(state => state)
 const dispatch = useDispatch()
 const [counter, setCounter] = useState(0);
       useEffect(() => {
-      dispatch({ type: LOAD_DATA});
+      dispatch({ type: LOAD_DATA, labels: _state[0].labels});
       const timer =
         setInterval(() => setCounter(counter + 1), 1000);
       return () => clearInterval(timer);

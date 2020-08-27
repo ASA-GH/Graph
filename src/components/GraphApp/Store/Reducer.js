@@ -1,5 +1,5 @@
 import GetColor from './RandomColor'
-import {ERROR_RESP, DEL_CHIP, ADD_CHIP} from '../Constants'
+import {ERROR_RESP, DEL_CHIP, ADD_CHIP, DRAW} from '../Constants'
 const RemoveErrors = (array) => {
   let result = [];
   for (let obj of array) {
@@ -25,7 +25,9 @@ export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}}], acti
       labels.push(chip);
       obj.labels = labels;
       array[0] = obj;
+      console.log(array)
       return array;
+
     }
     case DEL_CHIP: {
       let array = [...state];
@@ -40,8 +42,7 @@ export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}}], acti
       let array = [...state];
       let obj = array[0];
       for (const [index, value] of action.data.dataset.entries()) {
-         value['color'] = obj.labels[index].color;
-         action.data.dataset[index] = value['color'];
+        action.data.dataset[index]['color'] = obj.labels[index].color;
       }
       obj.data = action.data;
       array[0] = obj;
