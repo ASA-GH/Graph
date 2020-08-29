@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import {LOAD_DATA} from "./../Constants"
+import {LOAD_DATA, STOP} from "./../Constants"
 
  
 // let Timer = setInterval(() => {
@@ -11,17 +11,24 @@ import {LOAD_DATA} from "./../Constants"
 // 1000);
 
 let Timer =()=>{
-const _state = useSelector(state => state)
+
+const State = useSelector(state => state)
 const dispatch = useDispatch()
-const [counter, setCounter] = useState(0);
-      useEffect(() => {
-      dispatch({ type: LOAD_DATA, labels: _state[0].labels});
-      const timer =
-        setInterval(() => setCounter(counter + 1), 1000);
-      return () => clearInterval(timer);
+const [counter, setCounter] = useState(0)
+
+useEffect(() => {
+
+ const timer =  setInterval(() => setCounter(counter + 1), 1000); 
+ dispatch({ type: LOAD_DATA, labels: State[0].labels});
+     
+     
+ return () => clearInterval(timer);
+
+
     }, [counter]);
   
-return <div>{counter}</div>;
 
-  };
+    return <div>{counter}</div>;
+
+};
 export default Timer;

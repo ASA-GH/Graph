@@ -6,3 +6,4 @@ export const LOAD_SCALE = 'LOAD_SCALE';
 export const IS_CONTAINS = 'IS_CONTAINS';
 export const TIMER = 'TIMER';
 export const DRAW = 'DRAW';
+export const STOP = 'STOP';

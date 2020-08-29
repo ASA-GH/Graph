@@ -25,7 +25,6 @@ export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}}], acti
       labels.push(chip);
       obj.labels = labels;
       array[0] = obj;
-      console.log(array)
       return array;
 
     }

@@ -25,8 +25,7 @@ const AddGraph = () => {
   }
   const addNewChip = e => {
     e.preventDefault();     
-    dispatch({ type: IS_CONTAINS, title: Chip.title })
-  ;
+    dispatch({ type: IS_CONTAINS, title: Chip.title });
   }
   return (
     <form onSubmit={addNewChip} className='wrapperAddGraph'>
