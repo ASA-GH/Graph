@@ -23,7 +23,7 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
     "redux-actions": "^2.6.5",
     "redux-form": "^8.3.5",
@@ -32,7 +32,8 @@
     "resize-observer-polyfill": "^1.5.1",
     "save": "^2.4.0",
     "to": "^0.2.9",
-    "update": "^0.7.4"
+    "update": "^0.7.4",
+    "victory": "^35.0.8"
   },
   "scripts": {
     "start": "react-scripts start",

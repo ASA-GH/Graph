@@ -1,251 +1,117 @@
 import React, { useRef, useEffect, useState } from "react";
 import Card from '../Card/Card'
 import { useSelector } from 'react-redux'
-import {
-  select,
-  scaleLinear,
-  line,
-  max,
-  curveCardinal,
-  axisBottom,
-  axisLeft,
-  zoom,
-  zoomTransform
-} from "d3";
+import { VictoryChart, VictoryArea, VictoryTheme, VictoryAxis, VictoryLine } from "victory";
 import useResizeObserver from "./useResizeObserver";
-import Timer from './../Store/Timer'
+import Timer from '../Store/Timer'
 
 
 
 
 const Graphs = () => {
  
-  // const createData = (chips) => {
-  //   let data = {
-  //     dataset: []
-  //   };
-  //   chips.map((chip) => {
-  //     if (!chip.error) {
-  //       let item = {
-  //         label: chip.title,
-  //         data: chip.data[0].data,
-  //       };
+  let arrDate =  [new Date(1598803819466), new Date(1598803849566), new Date(1598803869666), new Date(1598853889766)]
+  let arrValue =  [4, 14, 10, 15]
+  let newData = {value: arrValue, data: arrDate}
+  let State = useSelector(state => state);
 
-  //       data.dataset.push(item);
-  //     }
-  //   })
-  //   return data;
-  // };
+let dataState = State[0].data;
 
-   // const data = createData(chips);
+console.log(State)
 
 
+let f = (data) => {
+  let result = [];
+  for (const [index, value] of data.entries()) {
 
-// const GetMax = (dataset) => {
-//   let result = 0;
-//   dataset.map((item) => {
-//     const m = max(item.data);
-//     if (result < m)
-//       result = m;
-//   });
-//   return result;
-// }
+    let obj = JSON.parse(value);
+    let obj1 = {x: new Date(obj.x.parseInt()), y:(obj.y)};
+    console.log(obj1);
+                
+    result.push(obj1);
+  }
+   
+  console.log(result);
+  return result;
+  
+}
 
-// const GetLenght = (dataset) => {
-//   if (!dataset.length)
-//     return 0;
-//   return dataset[0].data.length - 1;
-// }
-
-
-// const data = {dataset:chips.data.dataset};
-
-
-// const data = {
-//   dataset: [
-//     {
-//     label: 'test1',
-//     data: [15, 50, 30, 40, 15, 50, 15]
-//     },
-//     {
-//     label: 'test2',
-//     data: [45, 55, 35, 45, 60, 45, 60]
-//     },
-//     {
-//     label: 'test3',
-//     data: [25, 35, 15, 25, 40, 25, 40]
-//     }
-//   ]
-// }
-
-
-let State = useSelector(state => state);
-// let  dataGraphs = _state[0].data;
-console.log('data');
-console.log(State[0].data.dataset);
-
-let data = State[0].data;
-
+//console.log(f(arrDate, arrValue));
 console.log("---------------------------------");
-console.log(data.dataset.length ? data.dataset[0].color : '!1!!');
+console.log('');
+console.log('color');
 
+console.log(dataState.dataset.length ? dataState.dataset[0].color : '!C!');
+
+console.log('');
+console.log('data');
+
+console.log(dataState.dataset.length ? dataState.dataset[0].data: '!D!');
+console.log('');
+
+console.log('label');
+console.log(dataState.dataset.length ? dataState.dataset[0].label : '!L!');
+console.log('');
+
+console.log('scale');
+console.log(dataState.scale.length ? dataState.scale : 0 +', ' + 1);
+console.log('');
+
+console.log('dataState');
+console.log(dataState);
+console.log('');
+scale:
+console.log("---------------------------------");
 
 const stopTimer = (e) => {setStop(true)}; 
 const startTimer = (e) => {setStop(false)};       
     
     const svgRef = useRef();
     const wrapperRef = useRef();
-    const dimensions = useResizeObserver(wrapperRef);
-    const [currentZoomState, setCurrentZoomState] = useState();
+    // const dimensions = useResizeObserver(wrapperRef);
     const [stop, setStop] = useState(true);
 
-    // will be called initially and on every data change
-    useEffect(() => {
-      
-      
-      
-      const svg = select(svgRef.current);
 
-      data.dataset.map((item) => {
-        const svgContent = svg.select(".content");
+
+     let sampleData = {
+       oneData:[
+      { x: 1, y: 2 },
+      { x: 2, y: 3 },
+      { x: 3, y: 5 },
+      { x: 4, y: 4 },
+      { x: 5, y: 2 },
+      { x: 6, y: 4 },
+      { x: 7, y: 6 },
+      { x: 8, y: 5 },
+      { x: 9, y: 3 }
+    ],
+    twoleData:[
+      { x: 0, y: 10 },
+      { x: 1, y: 10 },
+      { x: 2, y: 5 },
+      { x: 3, y: 8 },
+      { x: 4, y: 4 },
+      { x: 5, y: 0 },
+      { x: 6, y: 1 },
+      { x: 7, y: 6 },
+      { x: 8, y: 2 },
+      { x: 9, y: 6 },
+      { x: 10, y: 9 }
+    ],
+    threeData:[
+      { x: 0, y: 2 },
+      { x: 1, y: 1 },
+      { x: 2, y: 2 },
+      { x: 3, y: 3 },
+      { x: 4, y: 0 },
+      { x: 5, y: 4 },
+      { x: 6, y: 9 },
+      { x: 7, y: 6 },
+      { x: 8, y: 9 }
+    ]
+  }
+
        
-
-    const { width, height } =
-      dimensions || wrapperRef.current.getBoundingClientRect();
-
-      
-  
-      // scales + line generator
-      const xScale = scaleLinear()
-        .domain([0,  120])
-        .range([10, width - 10]);
-  
-      if (currentZoomState) {
-        const newXScale = currentZoomState.rescaleX(xScale);
-        xScale.domain(newXScale.domain());
-      }
-  
-      const yScale = scaleLinear()
-        .domain([0, 20])
-        .range([height - 20, 20]);
-  
-      const lineGenerator = line()
-        .x((d, index) => xScale(index))
-        .y(d => yScale(d))
-        .curve(curveCardinal);
-      // render the line
-
-      
-   
-        svgContent
-        .selectAll(".myLine")
-        .append('svg')
-        .enter()
-        .data([item.data])
-        .join("path")
-        .attr("class", "myLine")
-        .attr("stroke", data.dataset[0].color)
-        .attr("fill", "none")
-        .attr("d", lineGenerator);
-  
-      svgContent
-        .selectAll(".myDot")
-        .append('svg')
-        .enter()
-        .data(item.data)
-        .join("circle")
-        .attr("class", "myDot")
-        .attr("stroke", data.dataset[0].color)
-        .attr("r", 3)
-        .attr("fill", data.dataset[0].color)
-        .attr("cx", (value, index) => xScale(index))
-        .attr("cy", yScale);
-   
-  //    /* svgContent
-  //       .selectAll(".myLine")
-  //       .data([data.data])
-  //       .join("path")
-  //       .attr("class", "myLine")
-  //       .attr("stroke", "black")
-  //       .attr("fill", "none")
-  //       .attr("d", lineGenerator);
-  
-  //     svgContent
-  //       .selectAll(".myDot")
-  //       .data(data.data)
-  //       .join("circle")
-  //       .attr("class", "myDot")
-  //       .attr("stroke", "black")
-  //       .attr("r", 4)
-  //       .attr("fill", "orange")
-  //       .attr("cx", (value, index) => xScale(index))
-  //       .attr("cy", yScale);
-  // */
-      // axes
-      const xAxis = axisBottom(xScale);
-      svg
-        .select(".x-axis")
-        .attr("transform", `translate(0, ${height})`)
-        .call(xAxis);
-  
-      const yAxis = axisLeft(yScale);
-      svg.select(".y-axis").call(yAxis);
-  
-
-      // zoom
-      const zoomBehavior = zoom()
-        .scaleExtent([0.5, 5])
-        .translateExtent([
-          [0, 0],
-          [width, height]
-        ])
-        .on("zoom", () => {
-          const zoomState = zoomTransform(svg.node());
-          setCurrentZoomState(zoomState);
-        });
-
-  
-      svg.call(zoomBehavior);
-    });
-    // }, [ dimensions]);
-  }, [currentZoomState, data, dimensions]);
-   
- /* const chips = useSelector(state => state)
-  const createData = (chips) => {
-    let data = {
-      labels: [100, 200, 300, 400, 600, 700, 800, 900, 1000],
-      datasets: []
-    };
-    chips.map((chip) => {
-      if (!chip.error) {
-        let item = {
-          label: chip.title,
-          data: chip.data[0].data,
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: chip.color,
-          borderColor: chip.color,
-          borderCapStyle: "butt",
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: "miter",
-          pointBorderColor: chip.color,
-          pointBackgroundColor: chip.color,
-          pointBorderWidth: 1,
-          pointHoverRadius: 10,
-          pointHoverBackgroundColor: chip.color,
-          pointHoverBorderColor: chip.color,
-          pointHoverBorderWidth: 2,
-          pointRadius: 5,
-          pointHitRadius: 5,
-        };
-
-        data.datasets.push(item);
-      }
-    })
-    return data;
-  }*/
-console.log (stop);
   return (
 <Card wrapperGraphs>
  <div style={{width:'200px', height:'40px', display: "flex"}}>
@@ -253,18 +119,84 @@ console.log (stop);
  <button style={{width:'50px', height:'30px'}} onClick={stopTimer} >stop</button>
  <button style={{width:'50px', height:'30px'}} onClick={startTimer} >start</button>
 </div>
-   <div ref={wrapperRef} style={{ marginBottom: "2rem" }}>
-        <svg ref={svgRef}>
-          <defs>
-            <clipPath id={data.label}>
-              <rect x="0" y="0" width="100%" height="100%" />
-            </clipPath>
-          </defs>
-          <g className="content" clipPath={`url(#${data.label})`}></g>
-          <g className="x-axis" />
-          <g className="y-axis" />
-        </svg>
-      </div>
+  <div>
+    <svg width={2000} height={500}>
+   
+  {/* <VictoryLine
+  interpolation="natural"
+  // 
+  data={sampleData}
+/> */}
+{/* <circle cx={150} cy={150} r={150} fill="#c43a31"/> */}
+  <VictoryChart
+    standalone={false}
+    width={1500} height={500}
+    theme={VictoryTheme.material}
+    minDomain={{ y: 0 }}
+    
+  >
+   {/* <VictoryAxis 
+   
+     orientation="bottom"
+    // tickValues={dataState.scale.length ? dataState.scale : [0 , 1]}
+    tickValues={arrDate}
+
+    // domain={[0, 10]}
+    theme={VictoryTheme.material}
+    offsetY={40}
+    offsetX={0}
+    standalone={false}
+  />
+  <VictoryAxis 
+     orientation="left"
+    domain={[0, 20]}
+    tickValues={arrValue}
+
+    theme={VictoryTheme.material}
+    offsetX={40}
+    offsetY={0}
+    standalone={false}
+  /> */}
+
+ {/* <VictoryLine
+  interpolation="natural"
+  style={{
+    data: {
+       stroke: dataState.dataset.length ? dataState.dataset[0].color : '!1!!', strokeWidth: 3
+    }}}
+  standalone={false}
+  // x={null} y={null}
+  data={sampleData.oneData}/> */}
+<VictoryLine
+  interpolation="natural"
+  standalone={false}
+  style={{
+    data: {
+       stroke: "#77DDE7", strokeWidth: 3
+    }}}
+  // x={null} y={null}
+  data={dataState.dataset.length ? f(dataState.dataset[0].data): []}/>
+  {/* <VictoryLine
+  // interpolation="natural"
+  standalone={false}
+  // x={null} y={null}
+  data={sampleData.threeData}
+  style={{
+    data: {
+       stroke: "#E32636", strokeWidth: 6
+    }
+    // labels: {
+    //   fontSize: 15, fill: "#c43a31", padding: 15
+    // }
+  }}
+  // labels={({ datum }) => datum.x}
+  
+  
+  /> */}
+  </VictoryChart>
+</svg>
+
+  </div>
 </Card>
   );
 
