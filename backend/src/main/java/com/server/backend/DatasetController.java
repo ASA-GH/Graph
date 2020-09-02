@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -39,9 +40,8 @@ public class DatasetController implements Manager {
     }
 
     public void Update() {
-        LocalTime time = LocalTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-        timeList.add(time.format(formatter));
+        String time = Long.toString(System.currentTimeMillis());
+        timeList.add(time);
         Normalization(timeList);
 
         for (String label : labels) {
@@ -49,7 +49,7 @@ public class DatasetController implements Manager {
                 stor.put(label, new ArrayList<>());
 
             List<String> list = stor.get(label);
-            list.add(Integer.toString(new Random().nextInt(20)));
+            list.add( String.format("{\"x\":\"%1$s\",\"y\":\"%2$s\"}", time, Integer.toString(new Random().nextInt(20))) );
             Normalization(list);
         }
     }
