@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class DatasetController implements Manager {
@@ -40,7 +41,9 @@ public class DatasetController implements Manager {
     }
 
     public void Update() {
-        String time = Long.toString(System.currentTimeMillis());
+        long timeSeconds = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
+        String time = Long.toString(timeSeconds)+"000";
+
         timeList.add(time);
         Normalization(timeList);
 
