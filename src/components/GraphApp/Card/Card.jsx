@@ -15,6 +15,10 @@ const Card = ({
     { wrapperGraphData: attrs.wrapperGraphData },
     { wrapperChips: attrs.wrapperChips },
     { innerChips: attrs.innerChips },
+    { wrapperControl: attrs.wrapperControl },
+    { wrapperTimer: attrs.wrapperTimer },
+    { victoryChart: attrs.victoryChart }
+
   );
 
   return (

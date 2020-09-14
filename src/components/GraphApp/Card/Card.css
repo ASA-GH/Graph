@@ -9,7 +9,7 @@
 }
 .wrapperGraphs{
     height: 90%;
-    width: 90%;
+    width:  90%;
 }
 .wrapperGraphData{
     height: 100%;
@@ -17,7 +17,23 @@
     grid-template-rows: 70% 30%;   
     justify-items: center;
     align-items: center;
-
+}
+.wrapperControl{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+    align-items: center;
+    justify-items: center;
+    width: 200px;
+    height: 10%;
+    /* background:darkorange; */
+}
+.victoryChart{
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
 }
 .wrapperChips{
     display: grid;
@@ -27,16 +43,17 @@
     justify-items: center;
     align-items: center;
 }
-
+.wrapperTimer{
+    align-items: center;
+    justify-items: center;
+}
 .card{  
     border-radius: 5px;
     background-color: #e9e9e9;
-                
 }
 .wrapperData{
     border-radius: 5px;
     background-color: #e9e9e9;
-
     width: 100px;
     height: 50px;
     box-shadow: -2px -2px 5px 0 #fff ,
@@ -47,19 +64,15 @@
 .DataInput{
     border-radius: 5px;
     background-color: #e9e9e9;
-
     width: 70%;
     height: 50%;
     box-shadow: inset -6px -6px 9px 0 #fff ,
     inset 6px 6px 9px 0 rgba(0,0,0, 0.4);
-
- 
 }
 .innerChips{
     display:  flex;
     overflow-x: auto;
     max-width: 60vw;
-
 }
 ::-webkit-scrollbar {
      width: 4px; height: 10px;}
