@@ -1,17 +1,20 @@
-import React, { useState, useEffect} from "react"
+import React, { useState, useMemo} from "react"
 import { useDispatch } from 'react-redux'
 import './AddGraph.css';
 import puls from '../Ikonate/svg/plus.svg';
 
 import {IS_CONTAINS} from '../Constants'
-
 const AddGraph = () => {
+ const dispatch = useDispatch()
+ const [Chip, setChip] = useState(0)
 
-  const dispatch = useDispatch()
-  const [Chip, setChip] = useState(0)
+
+
+ const useMemoAddGraph = useMemo(() => {
+
   const handleChipData = e => {
     setChip({
-      ...Chip,
+      ...Chip, 
       [e.target.id]: e.target.value,
     })
   }
@@ -19,6 +22,8 @@ const AddGraph = () => {
     e.preventDefault();     
     dispatch({ type: IS_CONTAINS, title: Chip.title });
   }
+  
+  
   return (
     <form onSubmit={addNewChip} className='wrapperAddGraph'>
      <div className='wrapperInputAddGraph'>
@@ -39,5 +44,8 @@ const AddGraph = () => {
       </button>
     </form>
   )
+   }, [Chip.title]);
+   
+   return useMemoAddGraph;
 }
-export default AddGraph;
+  export default AddGraph;

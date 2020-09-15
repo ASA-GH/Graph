@@ -3,12 +3,14 @@
   height: 90%;
   background: red;
 }
-svg {
-  display: block;
+svg{
   width: 100%;
   height: 90%;
-  overflow: visible;
 }
+/* svg.VictoryChart{
+  width: 100%;
+  height: 90%;
+} */
 .controlButton {
     text-align: center;
     display: grid;
