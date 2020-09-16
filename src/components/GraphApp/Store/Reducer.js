@@ -1,5 +1,6 @@
 import GetColor from './RandomColor'
 import {ERROR_RESP, DEL_CHIP, ADD_CHIP, DRAW} from '../Constants'
+
 const RemoveErrors = (array) => {
   let result = [];
   for (let obj of array) {
@@ -13,7 +14,6 @@ export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}}], acti
   switch (action.type) {
     case ADD_CHIP: {
       let array = [...state];
-      
       let obj = array[0];
       let labels = RemoveErrors(obj.labels);
       let chip = {
@@ -26,14 +26,13 @@ export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}}], acti
       obj.labels = labels;
       array[0] = obj;
       return array;
-
     }
     case DEL_CHIP: {
       let array = [...state];
       let obj = array[0];
-      let labels = RemoveErrors(obj.labels);
-      labels.splice(labels.indexOf(action.chip), 1);
-      obj.labels = labels;
+      let labels = obj.labels;
+      labels.splice(labels.indexOf(action.label), 1);
+      obj.labels = RemoveErrors(labels);
       array[0] = obj;
       return array;
     }

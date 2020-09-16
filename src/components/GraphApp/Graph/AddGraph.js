@@ -8,21 +8,18 @@ const AddGraph = () => {
  const dispatch = useDispatch()
  const [Chip, setChip] = useState(0)
 
-
-
  const useMemoAddGraph = useMemo(() => {
 
   const handleChipData = e => {
     setChip({
-      ...Chip, 
+      ...Chip,
       [e.target.id]: e.target.value,
     })
   }
   const addNewChip = e => {
-    e.preventDefault();     
+    e.preventDefault();
     dispatch({ type: IS_CONTAINS, title: Chip.title });
   }
-  
   
   return (
     <form onSubmit={addNewChip} className='wrapperAddGraph'>
@@ -40,12 +37,11 @@ const AddGraph = () => {
       <div className = 'innerButton'>
         <img className ='plusSvg' src ={puls} alt='+' />
       </div>
-        
       </button>
     </form>
   )
-   }, [Chip.title]);
-   
-   return useMemoAddGraph;
+  }, [Chip.title]);
+
+  return useMemoAddGraph;
 }
   export default AddGraph;

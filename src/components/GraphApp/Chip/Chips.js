@@ -14,7 +14,7 @@ const Chips = () => {
       <Card innerChips >
         {
           chips[0].labels.map(chip => (!chip.error ?
-            <Chip key={chip.id} Chip={chip} />
+            <Chip key={chip.id} chip={chip} />
             :
             alert('Error: ' + chip.title)
           ))
