@@ -3,12 +3,13 @@ import Card from '../Card/Card'
 import { useSelector } from 'react-redux'
 import { VictoryChart, 
          VictoryTheme,
-         VictoryAxis, 
+         VictoryAxis,
+         VictoryArea,
          VictoryLine } from "victory";
 import Timer from '../Store/Timer'
 import play from '../Ikonate/svg/play.svg';
 import pause from '../Ikonate/svg/pause.svg';
-
+import useDimensions from "react-use-dimensions";
 
 const Graphs = () => {
  
@@ -27,6 +28,7 @@ let normalization = (data) => {
 const [stop, setStop] = useState(true);
 const stopTimer = (e) => {setStop(true)}; 
 const startTimer = (e) => {setStop(false)};       
+const [measureRef, { width, height }] = useDimensions();
     
 return (
 <Card wrapperGraphs>
@@ -41,14 +43,21 @@ return (
    <img className ='playSvg' src ={play} alt='>' />
  </div></div>
  </Card>
- <Card victoryChart>
- <svg> 
+ <div className ='victoryChart' ref={measureRef}>
+ <svg
+  height="100%"
+  preserveAspectRatio="none"
+  width="100%"
+  viewBox={"0 0  " + width + " " + height}
+  pointerEvents=""> 
 <VictoryChart
 scale={{ x: "time" , y:"linear"}}
  standalone={false}
- width={1600} height={500}
+//  width={1600} height={500}
  theme={VictoryTheme.material}
  minDomain={{ y: 0 }}
+ height={height}
+ width={width}
 >
  <VictoryAxis 
   orientation="bottom"/>
@@ -60,7 +69,7 @@ scale={{ x: "time" , y:"linear"}}
     <VictoryLine
      interpolation="monotoneX"
      scale={{ x: "time" , y:"linear"}}
-     style={{ data: { stroke: obj.color, strokeWidth: 3 }}}
+     style={{ data: { stroke: obj.color, strokeWidth: 1.5 }}}
      data = {normalization(obj.data)}
    />
   ))
@@ -68,7 +77,7 @@ scale={{ x: "time" , y:"linear"}}
 </VictoryChart>
 </svg> 
  {/* <div className = 'test'/> */}
- </Card>
+ </div>
  
  </Card>
 )
