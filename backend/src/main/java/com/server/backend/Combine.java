@@ -3,6 +3,7 @@ package com.server.backend;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,11 @@ public class Combine {
 
     public Combine(List<String> labels, Map<String, Object> context) {
         this.labels = labels;
+        this.context = context;
+    }
+
+    public Combine(Map<String, Object> context) {
+        this.labels = new ArrayList<>();
         this.context = context;
     }
 
@@ -56,6 +62,18 @@ public class Combine {
         return new JSONObject()
                 .put("scale", scale)
                 .put("dataset", dataset)
+                .toString();
+    }
+
+    public String getLabels() throws Exception {
+        if (context == null)
+            throw new Exception("wrong context");
+
+        if (!context.containsKey("labels"))
+            throw new Exception("Not enough data in context");
+
+        return new JSONObject()
+                .put("labels", new JSONArray((List<String>)context.get("labels")))
                 .toString();
     }
 }

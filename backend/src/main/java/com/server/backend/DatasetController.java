@@ -34,7 +34,11 @@ public class DatasetController implements Manager {
         final Combine combine = new Combine(queryMap.get("label"), Map.of("labels", (Object)labels));
         return combine.isContains();
     }
-
+    @RequestMapping(value = "/labels", method = RequestMethod.GET)
+    public String getLabels() throws Exception {
+        final Combine combine = new Combine(Map.of("labels", (Object)labels));
+        return combine.getLabels();
+    }
     @RequestMapping("/")
     public String home() {
         return "home";
