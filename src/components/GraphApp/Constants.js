@@ -7,3 +7,5 @@ export const IS_CONTAINS = 'IS_CONTAINS';
 export const TIMER = 'TIMER';
 export const DRAW = 'DRAW';
 export const STOP = 'STOP';
+export const GET_LABELS = 'GET_LABELS';
+export const LOAD_LABELS = 'LOAD_LABELS';

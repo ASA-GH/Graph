@@ -1,57 +1,56 @@
 import React, { useState, useMemo} from "react"
 import Select from "react-select";
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './AddGraph.css';
 import puls from '../Ikonate/svg/plus.svg';
 
-import {IS_CONTAINS} from '../Constants'
-const AddGraph = () => {
- const dispatch = useDispatch()
- const [Chip, setChip] = useState(0)
+import {IS_CONTAINS, GET_LABELS} from '../Constants'
 
- const useMemoAddGraph = useMemo(() => {
+const AddGraph = () => {
+const dispatch = useDispatch()
+const data = useSelector(state => state)
+ 
+let curentLabel = ""; 
+const useMemoAddGraph = useMemo(() => {
+
 
   let normalization = (data) => {
     let result = [];
     for (const [index, value] of data.entries()) {
       let obj = JSON.parse(value);
-      let obj1 = {label: obj.x};
+      let obj1 = {label: obj};
       result.push(obj1);
     }
     return result;
    } 
 
   const handleChipData = e => {
-    setChip({
-      ...Chip,
-      [e.target.id]: e.target.value,
-    })
+     curentLabel = e.label;
   }
   const addNewChip = e => {
     e.preventDefault();
-    dispatch({ type: IS_CONTAINS, title: Chip.title });
+    dispatch({ type: IS_CONTAINS, title: curentLabel });
   }
-  // const { handleSubmit, register, reset, control } = useForm({ defaultValues });
-  const defaultValues = {
-    Native: "",
-    TextField: "",
-    Select: "",
-    ReactSelect: { value: "vanilla", label: "Vanilla" },
-    Checkbox: false,
-    switch: false,
-    RadioGroup: "",
-    numberFormat: 123456789,
-    downShift: "apple"
-  };
+
+  const getLabels = () => {
+    console.log("!!!!!data");
+     if (!data[0].items.lenght){
+      console.log("!!!!!data1");
+      dispatch({ type: GET_LABELS });
+    }
+  }
+
+
   return (
     <form onSubmit={addNewChip} className='wrapperAddGraph'>
      <div className='wrapperInputAddGraph'>
      <Select
     label="-Graph-"
     // options={[{ label: 'Zara'} ]}
-    options={normalization(labels)}
-    // onChange={handleChipData}
+    options={normalization(data[0].items)}
+    onMenuOpen={getLabels()}
+    onChange={handleChipData}
     // type="text"
     // id="title"
 
@@ -74,15 +73,15 @@ const AddGraph = () => {
       /> */}
       </div>
        <div/>
-      <button className='buttonAddGraph' disabled={!Chip.title}>
+      <button className='buttonAddGraph' >
       <div className = 'innerButton'>
         <img className ='plusSvg' src ={puls} alt='+' />
       </div>
       </button>
     </form>
   )
-  }, [Chip.title]);
+   }, [curentLabel]);
 
-  return useMemoAddGraph;
+   return useMemoAddGraph;
 }
   export default AddGraph;

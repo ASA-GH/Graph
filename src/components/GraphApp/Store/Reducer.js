@@ -1,5 +1,5 @@
 import GetColor from './RandomColor'
-import {ERROR_RESP, DEL_CHIP, ADD_CHIP, DRAW} from '../Constants'
+import {ERROR_RESP, DEL_CHIP, ADD_CHIP, DRAW, GET_LABELS} from '../Constants'
 
 const RemoveErrors = (array) => {
   let result = [];
@@ -10,7 +10,7 @@ const RemoveErrors = (array) => {
   return result;
 }
 
-export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}}], action) => {
+export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}, items:[]}], action) => {
   switch (action.type) {
     case ADD_CHIP: {
       let array = [...state];
@@ -27,6 +27,17 @@ export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}}], acti
       array[0] = obj;
       return array;
     }
+    case GET_LABELS: {
+
+      console.log(action);
+      let array = [...state];
+      let obj = array[0];
+  
+      obj.items = action.labels;
+      array[0] = obj;
+      return array;
+    }
+
     case DEL_CHIP: {
       let array = [...state];
       let obj = array[0];
