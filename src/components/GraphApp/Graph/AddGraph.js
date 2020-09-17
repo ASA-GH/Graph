@@ -1,4 +1,6 @@
 import React, { useState, useMemo} from "react"
+import Select from "react-select";
+
 import { useDispatch } from 'react-redux'
 import './AddGraph.css';
 import puls from '../Ikonate/svg/plus.svg';
@@ -10,6 +12,16 @@ const AddGraph = () => {
 
  const useMemoAddGraph = useMemo(() => {
 
+  let normalization = (data) => {
+    let result = [];
+    for (const [index, value] of data.entries()) {
+      let obj = JSON.parse(value);
+      let obj1 = {label: obj.x};
+      result.push(obj1);
+    }
+    return result;
+   } 
+
   const handleChipData = e => {
     setChip({
       ...Chip,
@@ -20,17 +32,46 @@ const AddGraph = () => {
     e.preventDefault();
     dispatch({ type: IS_CONTAINS, title: Chip.title });
   }
-  
+  // const { handleSubmit, register, reset, control } = useForm({ defaultValues });
+  const defaultValues = {
+    Native: "",
+    TextField: "",
+    Select: "",
+    ReactSelect: { value: "vanilla", label: "Vanilla" },
+    Checkbox: false,
+    switch: false,
+    RadioGroup: "",
+    numberFormat: 123456789,
+    downShift: "apple"
+  };
   return (
     <form onSubmit={addNewChip} className='wrapperAddGraph'>
      <div className='wrapperInputAddGraph'>
-      <input
+     <Select
+    label="-Graph-"
+    // options={[{ label: 'Zara'} ]}
+    options={normalization(labels)}
+    // onChange={handleChipData}
+    // type="text"
+    // id="title"
+
+    theme={theme => ({
+      ...theme,
+      borderRadius: 0,
+      colors: {
+        ...theme.colors,
+        primary25: 'green',
+        primary: 'blue',
+      },
+    })}
+  />
+      {/* <input
         type="text"
         id="title"
         placeholder="-Graph-"
         onChange={handleChipData}
         className = 'inputAddGraph'
-      />
+      /> */}
       </div>
        <div/>
       <button className='buttonAddGraph' disabled={!Chip.title}>
