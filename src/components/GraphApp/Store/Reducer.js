@@ -1,5 +1,5 @@
 import GetColor from './RandomColor'
-import {ERROR_RESP, DEL_CHIP, ADD_CHIP, DRAW, GET_LABELS} from '../Constants'
+import {ERROR_RESP, DEL_CHIP, ADD_CHIP, DRAW, GET_LABELS, CURENT_LABEL} from '../Constants'
 
 const RemoveErrors = (array) => {
   let result = [];
@@ -9,8 +9,19 @@ const RemoveErrors = (array) => {
   }
   return result;
 }
+// let normalization = (data) => {
+//   let result = [];
+//   for (const [index, value] of data.entries()) {
+//     let obj = value;
+//     let obj1 = {label:(obj)};
+    
+//     result.push(obj1);
+//   }
+//   return result;
+// }
 
-export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}, items:[]}], action) => {
+
+export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}, items:[], curentLabel:''}], action) => {
   switch (action.type) {
     case ADD_CHIP: {
       let array = [...state];
@@ -28,16 +39,20 @@ export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}, items:
       return array;
     }
     case GET_LABELS: {
-
-      console.log(action);
       let array = [...state];
       let obj = array[0];
-  
       obj.items = action.labels;
+      array[0] = obj;
+      console.log('GET_LABELS obj', obj)
+      return array;
+    }
+    case CURENT_LABEL: {
+      let array = [...state];
+      let obj = array[0];
+      obj.curentLabel = action.label;
       array[0] = obj;
       return array;
     }
-
     case DEL_CHIP: {
       let array = [...state];
       let obj = array[0];

@@ -1,32 +1,30 @@
-import React, { useState, useMemo} from "react"
+import React, {useMemo} from "react"
 import Select from "react-select";
 
 import { useDispatch, useSelector } from 'react-redux'
 import './AddGraph.css';
 import puls from '../Ikonate/svg/plus.svg';
-
-import {IS_CONTAINS, GET_LABELS} from '../Constants'
+import {IS_CONTAINS, LOAD_LABELS, CURENT_LABEL} from '../Constants'
 
 const AddGraph = () => {
 const dispatch = useDispatch()
 const data = useSelector(state => state)
- 
-let curentLabel = ""; 
-const useMemoAddGraph = useMemo(() => {
-
-
-  let normalization = (data) => {
+  
+    let normalization = (data) => {
     let result = [];
     for (const [index, value] of data.entries()) {
-      let obj = JSON.parse(value);
-      let obj1 = {label: obj};
-      result.push(obj1);
+      let obj = {label:value, value:value};
+      result.push(obj);
     }
     return result;
-   } 
+  }
+let options = data[0].items.length  ? normalization(data[0].items) : []
+let curentLabel = data[0].curentLabel  ?  data[0].curentLabel : '';
+
+const useMemoAddGraph = useMemo(() => {
 
   const handleChipData = e => {
-     curentLabel = e.label;
+     dispatch({ type: CURENT_LABEL, label:e.label});
   }
   const addNewChip = e => {
     e.preventDefault();
@@ -34,25 +32,23 @@ const useMemoAddGraph = useMemo(() => {
   }
 
   const getLabels = () => {
-    console.log("!!!!!data");
-     if (!data[0].items.lenght){
-      console.log("!!!!!data1");
-      dispatch({ type: GET_LABELS });
+    if (!data[0].items.length){
+      dispatch({ type: LOAD_LABELS});
     }
   }
 
-
   return (
+    
     <form onSubmit={addNewChip} className='wrapperAddGraph'>
      <div className='wrapperInputAddGraph'>
+     <div className='innerInputAddGraph'>
      <Select
-    label="-Graph-"
-    // options={[{ label: 'Zara'} ]}
-    options={normalization(data[0].items)}
-    onMenuOpen={getLabels()}
+    className='SelectAddGraph'
+    placeholder="-Graph-"
+   options={options}
+    onMenuOpen={getLabels}
     onChange={handleChipData}
-    // type="text"
-    // id="title"
+    id="title"
 
     theme={theme => ({
       ...theme,
@@ -60,27 +56,36 @@ const useMemoAddGraph = useMemo(() => {
       colors: {
         ...theme.colors,
         primary25: 'green',
-        primary: 'blue',
+        // neutral20: 'blue',//рамка
+        // primary: 'red', // фокус рамка
+        // primary75: 'red',//?
+        // primary50: 'red',// выделение в списке
+        // danger: 'red',//?
+        // dangerLight: 'red',//?
+        // neutral0: 'red',  //фон не выделеный
+        // neutral5: 'red',//?
+        // neutral10: 'red',//?
+        // neutral30: 'red',//фокус на рамку
+        // neutral40: 'red',//фокус на стрелку
+        // neutral50: 'red',//placeholder="-Graph-"
+        // neutral60: 'red', //выделеная стрелка
+        // neutral70: 'red',//?
+        // neutral80: 'green'//?
       },
     })}
-  />
-      {/* <input
-        type="text"
-        id="title"
-        placeholder="-Graph-"
-        onChange={handleChipData}
-        className = 'inputAddGraph'
-      /> */}
+  
+      />
+      </div>
       </div>
        <div/>
-      <button className='buttonAddGraph' >
+      <button className='buttonAddGraph'>
       <div className = 'innerButton'>
         <img className ='plusSvg' src ={puls} alt='+' />
       </div>
       </button>
     </form>
   )
-   }, [curentLabel]);
+   }, [curentLabel, options]);
 
    return useMemoAddGraph;
 }

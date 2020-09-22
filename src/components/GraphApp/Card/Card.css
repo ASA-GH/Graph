@@ -14,7 +14,7 @@
 .wrapperGraphData{
     height: 100%;
     display: grid;
-    grid-template-rows: 70% 30%;   
+    grid-template-rows: 60% 40%;   
     justify-items: center;
     align-items: center;
 }
@@ -69,11 +69,11 @@
     box-shadow: inset -6px -6px 9px 0 #fff ,
     inset 6px 6px 9px 0 rgba(0,0,0, 0.4);
 }
-.innerChips{
+/* .innerChips{
     display:  flex;
     overflow-x: auto;
     max-width: 60vw;
-}
+} */
 ::-webkit-scrollbar {
      width: 4px; height: 10px;}
 ::-webkit-scrollbar-button { 

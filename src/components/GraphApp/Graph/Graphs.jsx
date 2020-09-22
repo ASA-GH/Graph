@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import { VictoryChart, 
          VictoryTheme,
          VictoryAxis,
-         VictoryArea,
          VictoryLine } from "victory";
 import Timer from '../Store/Timer'
 import play from '../Ikonate/svg/play.svg';
@@ -26,8 +25,8 @@ let normalization = (data) => {
  } 
  
 const [stop, setStop] = useState(true);
-const stopTimer = (e) => {setStop(true)}; 
-const startTimer = (e) => {setStop(false)};       
+const stopTimer = (e) => {setStop(true)};
+const startTimer = (e) => {setStop(false)};
 const [measureRef, { width, height }] = useDimensions();
     
 return (

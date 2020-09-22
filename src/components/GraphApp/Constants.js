@@ -9,3 +9,4 @@ export const DRAW = 'DRAW';
 export const STOP = 'STOP';
 export const GET_LABELS = 'GET_LABELS';
 export const LOAD_LABELS = 'LOAD_LABELS';
+export const CURENT_LABEL = 'CURENT_LABEL';

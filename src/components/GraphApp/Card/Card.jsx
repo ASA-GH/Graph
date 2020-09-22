@@ -14,7 +14,7 @@ const Card = ({
     { wrapperGraphs: attrs.wrapperGraphs },
     { wrapperGraphData: attrs.wrapperGraphData },
     { wrapperChips: attrs.wrapperChips },
-    { innerChips: attrs.innerChips },
+    // { innerChips: attrs.innerChips },
     { wrapperControl: attrs.wrapperControl },
     { wrapperTimer: attrs.wrapperTimer },
     { victoryChart: attrs.victoryChart }
