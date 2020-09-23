@@ -5,10 +5,8 @@ import './Chip.css'
 import { useSelector } from 'react-redux'
 
 const Chips = () => {
-
   const chips = useSelector(state => state)
   const useMemoChips = useMemo(() => {
-
   return (
     <Card wrapperChips >
       <Card innerChips >
@@ -18,14 +16,11 @@ const Chips = () => {
             :
             alert('Error: ' + chip.title)
           ))
-
-          }
+        }
       </Card>
     </Card>
   );
 }, [chips[0].labels]);
-   
 return useMemoChips;
 };
-
 export default Chips;

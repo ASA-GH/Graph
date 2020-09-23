@@ -33,10 +33,10 @@ const useMemoAddGraph = useMemo(() => {
   }
  return (
   <form onSubmit={addNewChip} className='wrapperAddGraph'>
-    <div className='wrapperInputAddGraph'>
-     <div className='innerInputAddGraph'>
+    <div className='wrapperSelectAddGraph'>
+     <div className='innerSelectAddGraph'>
       <Select
-       className='SelectAddGraph'
+       className='selectAddGraph'
        placeholder="-Graph-"
        options={options}
        onMenuOpen={getLabels}
