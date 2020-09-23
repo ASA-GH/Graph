@@ -8,7 +8,7 @@ import {IS_CONTAINS, LOAD_LABELS, CURENT_LABEL} from '../Constants'
 const AddGraph = () => {
 const dispatch = useDispatch()
 const data = useSelector(state => state)
-let normalization = (data) => {
+const Normalization = (data) => {
   let result = [];
   for (const [index, value] of data.entries()) {
     let obj = {label:value, value:value};
@@ -16,31 +16,31 @@ let normalization = (data) => {
      }
      return result;
 }
-let options = data[0].items.length  ? normalization(data[0].items) : []
+let options = data[0].items.length  ? Normalization(data[0].items) : []
 let curentLabel = data[0].curentLabel  ?  data[0].curentLabel : '';
 const useMemoAddGraph = useMemo(() => {
-  const handleChipData = e => {
+  const HandleChipData = e => {
      dispatch({ type: CURENT_LABEL, label:e.label});
   }
-  const addNewChip = e => {
+  const AddNewChip = e => {
     e.preventDefault();
     dispatch({ type: IS_CONTAINS, title: curentLabel });
   }
-  const getLabels = () => {
+  const GetLabels = () => {
     if (!data[0].items.length){
       dispatch({ type: LOAD_LABELS});
     }
   }
  return (
-  <form onSubmit={addNewChip} className='wrapperAddGraph'>
+  <form onSubmit={AddNewChip} className='wrapperAddGraph'>
     <div className='wrapperSelectAddGraph'>
      <div className='innerSelectAddGraph'>
       <Select
        className='selectAddGraph'
        placeholder="-Graph-"
        options={options}
-       onMenuOpen={getLabels}
-       onChange={handleChipData}
+       onMenuOpen={GetLabels}
+       onChange={HandleChipData}
        id="title"
 
        theme={theme => ({
@@ -50,7 +50,7 @@ const useMemoAddGraph = useMemo(() => {
         ...theme.colors,
         primary25: '#0EAD69',
         neutral20: '#fff',
-        primary: '#0EAD69', 
+        primary:   '#0EAD69', 
         primary50: '#0EAD69',
         neutral30: '#0EAD69',
         neutral40: '#0EAD69',

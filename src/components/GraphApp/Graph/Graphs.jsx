@@ -11,9 +11,9 @@ import pause from '../Ikonate/svg/pause.svg';
 import useDimensions from "react-use-dimensions";
 
 const Graphs = () => {
- let State = useSelector(state => state);
- let dataState = State[0].data;
- let normalization = (data) => {
+ const state = useSelector(state => state);
+ const dataState = state[0].data;
+ const Normalization = (data) => {
   let result = [];
   for (const [index, value] of data.entries()) {
     let obj = JSON.parse(value);
@@ -21,22 +21,23 @@ const Graphs = () => {
     result.push(obj1);
   }
   return result;
- } 
-const [stop, setStop] = useState(true);
-const stopTimer = (e) => {setStop(true)};
-const startTimer = (e) => {setStop(false)};
-const [measureRef, { width, height }] = useDimensions();
+ }
+ const dataVictoryLine = Normalization(obj.data)
+ const [stop, setStop] = useState(true);
+ const StopTimer = (e) => {setStop(true)};
+ const StartTimer = (e) => {setStop(false)};
+ const [measureRef, { width, height }] = useDimensions();
  return (
   <Card wrapperGraphs>
     <Card wrapperControl>
       <Card wrapperTimer>{stop == false ?  <Timer/> : <div>stop</div>}
       </Card>
-      <div className = 'controlButton' onClick={stopTimer} >
+      <div className = 'controlButton' onClick={StopTimer} >
         <div className = 'innerButton'>
           <img className ='playSvg' src ={pause} alt='||' />
         </div>
       </div>
-      <div className = 'controlButton' onClick={startTimer} >
+      <div className = 'controlButton' onClick={StartTimer} >
         <div className = 'innerButton'>
           <img className ='playSvg' src ={play} alt='>' />
         </div>
@@ -66,7 +67,7 @@ const [measureRef, { width, height }] = useDimensions();
                   interpolation="monotoneX"
                   scale={{ x: "time" , y:"linear"}}
                   style={{ data: { stroke: obj.color, strokeWidth: 1.5 }}}
-                  data = {normalization(obj.data)}/>
+                  data = {dataVictoryLine}/>
              ))
             }
        </VictoryChart>
