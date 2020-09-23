@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import {LOAD_DATA, STOP} from "./../Constants"
+import {LOAD_DATA} from "./../Constants"
 
 let Timer =()=>{
 const State = useSelector(state => state)

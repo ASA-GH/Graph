@@ -5,7 +5,7 @@ import GraphApp from './components/GraphApp/GraphApp'
 const App = (props) => {
   return (
     <div className = 'wrapperApp'>  
-    <GraphApp />
+     <GraphApp />
     </div>
   )
 }

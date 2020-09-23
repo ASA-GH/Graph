@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import './Chip.css';
-import Close from '../Ikonate/svg/Close.svg'
+import close from '../Ikonate/svg/close.svg'
 import { useDispatch } from 'react-redux'
 import {DEL_CHIP} from '../Constants'
 
@@ -12,7 +12,7 @@ const DeleteChip = ({chip}) => {
   }
   return (
     <span className="chipClose" onClick={DeleteChipAction} >
-      <img className='closeSvg' src={Close} alt='x' />
+      <img className='closeSvg' src={close} alt='x' />
     </span>
   )
 }
