@@ -1,12 +1,3 @@
-.test{
-  width: 100%;
-  height: 90%;
-  background: red;
-}
-/* svg{
-  width: 100%;
-  height: 90%;
-} */
 .victoryChart{
   display: grid;
   justify-items: center;
@@ -14,46 +5,55 @@
   width: 100%;
   height: 90%;
 }
-/* svg.VictoryChart{
-  width: 100%;
-  height: 90%;
-} */
 .controlButton {
-    text-align: center;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 4px;
-    box-sizing: border-box;
-    background: conic-gradient(rgb(255, 255, 255) 0%, rgb(255, 255, 255) 10%, rgb(241, 240, 240) 20%, rgb(241, 240, 240) 30%, rgb(255, 255, 255) 40%, rgb(241, 240, 240) 50%, rgb(241, 240, 240) 60%, rgb(255, 255, 255) 90%);
-    box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
-    outline: none;
-
-
-  }
-  .controlButton :active {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 4px;
-    box-sizing: border-box;
-    background: conic-gradient(rgb(255, 255, 255) 0%, rgb(255, 255, 255) 10%, rgb(241, 240, 240) 20%, rgb(241, 240, 240) 30%, rgb(255, 255, 255) 40%, rgb(241, 240, 240) 50%, rgb(241, 240, 240) 60%, rgb(255, 255, 255) 90%);
-    box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
-    outline: none;
-
-
-  }
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 4px;
+  box-sizing: border-box;
+  background: conic-gradient(
+              rgb(255, 255, 255) 0%, 
+              rgb(255, 255, 255) 10%, 
+              rgb(241, 240, 240) 20%, 
+              rgb(241, 240, 240) 30%, 
+              rgb(255, 255, 255) 40%, 
+              rgb(241, 240, 240) 50%, 
+              rgb(241, 240, 240) 60%, 
+              rgb(255, 255, 255) 90%);
+  box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, 
+              rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
+  outline: none;
+}
+.controlButton :active {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 4px;
+  box-sizing: border-box;
+  background: conic-gradient(
+              rgb(255, 255, 255) 0%, 
+              rgb(255, 255, 255) 10%, 
+              rgb(241, 240, 240) 20%, 
+              rgb(241, 240, 240) 30%, 
+              rgb(255, 255, 255) 40%, 
+              rgb(241, 240, 240) 50%, 
+              rgb(241, 240, 240) 60%, 
+              rgb(255, 255, 255) 90%);
+  box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, 
+              rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
+  outline: none;
+}
 .innerButton{
   display: grid;
   justify-items: center;
   align-items: center;
-
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -63,7 +63,6 @@
   display: grid;
   justify-items: center;
   align-items: center;
-
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -78,46 +77,64 @@
   height: 70%;
 }
 .buttonAddGraph{
-   padding: 0;
-   border: none;
-   font: inherit;
-   color: inherit;
-   cursor: pointer;
-   text-align: center;
-   text-decoration: none;
-   border: solid 2px transparent;
-   width: 50px;
-   height: 50px;
-   display: grid;
-   justify-items: center;
-   align-items: center;
-   border-radius: 50%;
-   padding: 4px;
-   box-sizing: border-box;
-   background: conic-gradient(rgb(255, 255, 255) 0%, rgb(255, 255, 255) 10%, rgb(241, 240, 240) 20%, rgb(241, 240, 240) 30%, rgb(255, 255, 255) 40%, rgb(241, 240, 240) 50%, rgb(241, 240, 240) 60%, rgb(255, 255, 255) 90%);
-   box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
-   outline: none;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border: solid 2px transparent;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 4px;
+  box-sizing: border-box;
+  background: conic-gradient(
+              rgb(255, 255, 255) 0%, 
+              rgb(255, 255, 255) 10%, 
+              rgb(241, 240, 240) 20%, 
+              rgb(241, 240, 240) 30%, 
+              rgb(255, 255, 255) 40%, 
+              rgb(241, 240, 240) 50%, 
+              rgb(241, 240, 240) 60%, 
+              rgb(255, 255, 255) 90%);
+  box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, 
+              rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
+  outline: none;
 }
 .buttonAddGraph:focus{
   padding: 0;
-   border: none;
-   font: inherit;
-   color: inherit;
-   cursor: pointer;
-   text-align: center;
-   text-decoration: none;
-   border: solid 2px transparent;
-   width: 50px;
-   height: 50px;
-   display: grid;
-   justify-items: center;
-   align-items: center;
-   border-radius: 50%;
-   padding: 4px;
-   box-sizing: border-box;
-   background: conic-gradient(rgb(255, 255, 255) 0%, rgb(255, 255, 255) 10%, rgb(241, 240, 240) 20%, rgb(241, 240, 240) 30%, rgb(255, 255, 255) 40%, rgb(241, 240, 240) 50%, rgb(241, 240, 240) 60%, rgb(255, 255, 255) 90%);
-   box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
-   outline: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border: solid 2px transparent;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 4px;
+  box-sizing: border-box;
+  background: conic-gradient(
+              rgb(255, 255, 255) 0%, 
+              rgb(255, 255, 255) 10%, 
+              rgb(241, 240, 240) 20%, 
+              rgb(241, 240, 240) 30%, 
+              rgb(255, 255, 255) 40%, 
+              rgb(241, 240, 240) 50%, 
+              rgb(241, 240, 240) 60%, 
+              rgb(255, 255, 255) 90%);
+  box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, 
+              rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
+  outline: none;
 }
 .buttonAddGraph:hover{
   padding: 0;
@@ -136,8 +153,17 @@
   border-radius: 50%;
   padding: 4px;
   box-sizing: border-box;
-  background: conic-gradient(rgb(255, 255, 255) 0%, rgb(255, 255, 255) 10%, rgb(241, 240, 240) 20%, rgb(241, 240, 240) 30%, rgb(255, 255, 255) 40%, rgb(241, 240, 240) 50%, rgb(241, 240, 240) 60%, rgb(255, 255, 255) 90%);
-  box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
+  background: conic-gradient(
+              rgb(255, 255, 255) 0%, 
+              rgb(255, 255, 255) 10%, 
+              rgb(241, 240, 240) 20%, 
+              rgb(241, 240, 240) 30%, 
+              rgb(255, 255, 255) 40%, 
+              rgb(241, 240, 240) 50%, 
+              rgb(241, 240, 240) 60%, 
+              rgb(255, 255, 255) 90%);
+  box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, 
+              rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
   outline: none;
 }
 .buttonAddGraph:active{
@@ -157,8 +183,17 @@
   border-radius: 50%;
   padding: 4px;
   box-sizing: border-box;
-  background: conic-gradient(rgb(255, 255, 255) 0%, rgb(255, 255, 255) 10%, rgb(241, 240, 240) 20%, rgb(241, 240, 240) 30%, rgb(255, 255, 255) 40%, rgb(241, 240, 240) 50%, rgb(241, 240, 240) 60%, rgb(255, 255, 255) 90%);
-  box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
+  background: conic-gradient(
+              rgb(255, 255, 255) 0%, 
+              rgb(255, 255, 255) 10%, 
+              rgb(241, 240, 240) 20%, 
+              rgb(241, 240, 240) 30%, 
+              rgb(255, 255, 255) 40%, 
+              rgb(241, 240, 240) 50%, 
+              rgb(241, 240, 240) 60%, 
+              rgb(255, 255, 255) 90%);
+  box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, 
+              rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
   outline: none;
 }
 .buttonAddGraph:disabled {
@@ -179,85 +214,51 @@
   border-radius: 50%;
   padding: 4px;
   box-sizing: border-box;
-  background: conic-gradient(rgb(255, 255, 255) 0%, rgb(255, 255, 255) 10%, rgb(241, 240, 240) 20%, rgb(241, 240, 240) 30%, rgb(255, 255, 255) 40%, rgb(241, 240, 240) 50%, rgb(241, 240, 240) 60%, rgb(255, 255, 255) 90%);
-  box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
+  background: conic-gradient(
+              rgb(255, 255, 255) 0%, 
+              rgb(255, 255, 255) 10%, 
+              rgb(241, 240, 240) 20%, 
+              rgb(241, 240, 240) 30%, 
+              rgb(255, 255, 255) 40%, 
+              rgb(241, 240, 240) 50%, 
+              rgb(241, 240, 240) 60%, 
+              rgb(255, 255, 255) 90%);
+  box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, 
+              rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
   outline: none;
-
 }
 .wrapperAddGraph{
   display: grid;
   grid-template-columns: 25vw 4vw max-content;
   size: 6em;
 }
-.wrapperInputAddGraph{
-     width: 100%;
-    height: 100%;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    box-sizing: border-box;
-    box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, 
-    rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(252, 251, 250);
-    border-image: initial;
-    border-radius: 4px;
-    outline: none;
-    size: 4em;
-}
-.innerInputAddGraph{
-  width: 90%;
- height: max-content;
- display: grid;
- box-sizing: border-box;
- border-width: 1px;
- border-style: solid;
- border-color: rgb(252, 251, 250);
- border-image: initial;
- border-radius: 4px;
- outline: none;
- size: 4em;
-}
-.inputAddGraph {
-  padding: 0;
-  border: none;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  outline: none;
-  width: 90%;
+.wrapperSelectAddGraph{
+  width: 100%;
   height: 100%;
-  justify-self: center;
-  size: 4em;
-}
-.inputAddGraph:hover {
-  padding: 0;
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: #fff;
-  cursor: pointer;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.12) 1px 2px 4px 0px, 
+              rgba(0, 0, 0, 0.12) 2px 4px 8px 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(252, 251, 250);
+  border-image: initial;
+  border-radius: 4px;
   outline: none;
   size: 4em;
 }
-.inputAddGraph:active {
-  padding: 0;
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: #fff;
-  cursor: pointer;
-  outline: none;
-  size: 3em;
-}
-.inputAddGraph:focus {
-  padding: 0;
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: #fff;
-  cursor: pointer;
+.innerSelectAddGraph{
+  width: 90%;
+  height: max-content;
+  display: grid;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(252, 251, 250);
+  border-image: initial;
+  border-radius: 4px;
   outline: none;
   size: 4em;
 }
@@ -275,11 +276,10 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: #000;
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
-  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,174,255,0.04) 50%,rgba(255,255,255,0) 51%,rgba(0,174,255,0.03) 100%);  
-}
-.SelectAddGraph{
-
-
-
+  background: -webkit-linear-gradient(top,  
+              rgba(255,255,255,0) 0%,
+              rgba(0,174,255,0.04) 50%,
+              rgba(255,255,255,0) 51%,
+              rgba(0,174,255,0.03) 100%);  
 }
 
