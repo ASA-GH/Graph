@@ -22,7 +22,7 @@ const Graphs = () => {
   }
   return result;
  }
- const dataVictoryLine = Normalization(obj.data)
+ 
  const [stop, setStop] = useState(true);
  const StopTimer = (e) => {setStop(true)};
  const StartTimer = (e) => {setStop(false)};
@@ -67,7 +67,7 @@ const Graphs = () => {
                   interpolation="monotoneX"
                   scale={{ x: "time" , y:"linear"}}
                   style={{ data: { stroke: obj.color, strokeWidth: 1.5 }}}
-                  data = {dataVictoryLine}/>
+                  data = {Normalization(obj.data)}/>
              ))
             }
        </VictoryChart>
