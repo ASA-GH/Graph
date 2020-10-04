@@ -1,6 +1,7 @@
 export const ADD_CHIP = 'ADD_CHIP';
 export const DEL_CHIP = 'DEL_CHIP';
 export const ERROR_RESP = 'ERROR_RESP';
+export const ERROR = 'ERROR';
 export const LOAD_DATA = 'LOAD_DATA';
 export const IS_CONTAINS = 'IS_CONTAINS';
 export const DRAW = 'DRAW';

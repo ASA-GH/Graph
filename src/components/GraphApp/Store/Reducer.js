@@ -59,6 +59,13 @@ export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}, items:
       array[0] = obj;
       return array;
     }
+    case 'ERROR': {
+    let array = [...state];
+
+console.log(action.e)
+
+    return array;
+    }
     case ERROR_RESP: {
       let array = [...state];
       let obj = array[0];
