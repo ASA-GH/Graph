@@ -2,13 +2,12 @@ package com.server.backend;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -28,24 +27,52 @@ public class DatasetController implements Manager {
 //       return combine.getDataset();
 //    }
 
-    @RequestMapping(value = "/dataset", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public String getDataset(@RequestBody Map<String, Object> queryMap) throws Exception {
+    static public class MyLabels {
+        private JSONArray labels;
+        public MyLabels(){}
+        public MyLabels(JSONArray labels){
+            this.labels = labels;
 
+        System.out.println(labels.toString());
+        }
+
+        public void setLabels(JSONArray labels) {
+            this.labels = labels;
+        }
+
+        public JSONArray getLabels() {
+            return labels;
+        }
+   }
+    @PostMapping(value = "/dataset", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity getDataset(@RequestBody MyLabels myLabels) throws Exception {
         System.out.println("!!!!!!!!!!!!!!!!dataset!!!!!!!!!!!!!!!!!!!");
-        System.out.println(queryMap.keySet());
-/*
-        final Combine combine = new Combine(queryMap.get("label"), Map.of("scale", (Object)timeList, "data", (Object)stor));
-        return combine.getDataset();
+//        final Combine combine = new Combine(myLabels.getLabels(), Map.of("scale", (Object)timeList, "data", (Object)stor));
+//        return new ResponseEntity<>(combine.getDataset(),  HttpStatus.OK  );
 
- */
-        return "{}";
+        Map<String, Object> result = new HashMap<>();
+        return new ResponseEntity<>(result,  HttpStatus.OK  );
+
     }
-
+//    @RequestMapping(value = "/dataset", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+//    @ResponseBody
+//    public String getDataset(@RequestBody Object body) throws Exception {
+//
+//        System.out.println("!!!!!!!!!!!!!!!!dataset!!!!!!!!!!!!!!!!!!!");
+//        System.out.println(body.toString());
+///*
+//        final Combine combine = new Combine(queryMap.get("label"), Map.of("scale", (Object)timeList, "data", (Object)stor));
+//        return combine.getDataset();
+//
+// //        return "{}";
+//    }
+//
     @RequestMapping(value = "/contains", method = RequestMethod.GET)
     public String isContains(@RequestParam MultiValueMap<String, String> queryMap) throws Exception {
-        final Combine combine = new Combine(queryMap.get("label"), Map.of("labels", (Object)labels));
-        return combine.isContains();
+        //final Combine combine = new Combine(queryMap.get("label"), Map.of("labels", (Object)labels));
+        return new JSONObject()
+                .put("contains", "yes")
+                .toString();
     }
     @RequestMapping(value = "/labels", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody

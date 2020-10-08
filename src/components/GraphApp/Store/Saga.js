@@ -30,27 +30,25 @@ export function* LoadLabels(action) {
 }
 };
 
-
 const GetBody = (action) =>{
   let res = {
-    labels : action.labels.length ? action.labels : []
+    "labels" : action.labels.length ? action.labels : []
   }
-  return  JSON.stringify(res);
+  console.log(res)
+  return {
+    "labels" : action.labels.length ? action.labels : []
+  };
 }
 
 
 export function* LoadData(action) {
   try{
     const response = yield call(() => { 
-      return axios.request({
-      method: "POST",
-      url: "http://localhost:8080/dataset",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type":"application/json"
-      },
-      body: GetBody(action)
-  });
+      return axios.post(
+      "http://localhost:8080/dataset",
+      
+      GetBody(action)
+  );
 });
     yield put({ type: DRAW, data: response.data });
 }catch(e) {
