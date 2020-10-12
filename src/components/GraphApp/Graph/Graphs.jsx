@@ -16,7 +16,7 @@ const Graphs = () => {
  const Normalization = (data) => {
   let result = [];
   for (const [index, value] of data.entries()) {
-    let obj = JSON.parse(value);
+    let obj = value;
     let obj1 = {x: new Date (Number(obj.x)), y:Number(obj.y)};
     result.push(obj1);
   }

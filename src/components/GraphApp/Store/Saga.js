@@ -2,15 +2,6 @@ import { takeLatest, put, call } from 'redux-saga/effects';
 import {ERROR_RESP, IS_CONTAINS, ADD_CHIP, LOAD_DATA, DRAW, GET_LABELS, LOAD_LABELS, ERROR} from '../Constants';
 import axios from 'axios';
 
-export function* IsContains(action) {
-  const data = yield call(() => {
-    return fetch('http://localhost:8080/contains?label=' + action.title)
-      .then(
-        (response) => { return response.json(); }
-      )
-  });
-  yield put({ type: data.contains == "yes" ? ADD_CHIP : ERROR_RESP, title: action.title});
-};
 export function* LoadLabels(action) {
   try{
     const response = yield call(() => { 
@@ -31,12 +22,8 @@ export function* LoadLabels(action) {
 };
 
 const GetBody = (action) =>{
-  let res = {
-    "labels" : action.labels.length ? action.labels : []
-  }
-  console.log(res)
   return {
-    "labels" : action.labels.length ? action.labels : []
+    "labels" :action.labels.length ? action.labels : []
   };
 }
 
@@ -75,7 +62,6 @@ export function* LoadData(action) {
 // };
 
 export function* DataWatcher() {
- yield takeLatest(IS_CONTAINS, IsContains);
  yield takeLatest(LOAD_DATA, LoadData);
  yield takeLatest(LOAD_LABELS, LoadLabels);
 };

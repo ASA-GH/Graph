@@ -3,7 +3,7 @@ import Select from "react-select";
 import { useDispatch, useSelector } from 'react-redux'
 import './AddGraph.css';
 import puls from '../Ikonate/svg/plus.svg';
-import {IS_CONTAINS, LOAD_LABELS, CURENT_LABEL} from '../Constants'
+import {ADD_CHIP, LOAD_LABELS, CURENT_LABEL} from '../Constants'
 
 const AddGraph = () => {
 const dispatch = useDispatch()
@@ -24,7 +24,7 @@ const useMemoAddGraph = useMemo(() => {
   }
   const AddNewChip = e => {
     e.preventDefault();
-    dispatch({ type: IS_CONTAINS, title: curentLabel });
+    dispatch({ type: ADD_CHIP, title: curentLabel });
   }
   const GetLabels = () => {
     if (!data[0].items.length){

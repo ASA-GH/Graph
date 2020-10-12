@@ -52,7 +52,6 @@ export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}, items:
     case DRAW: {
       let array = [...state];
       let obj = array[0];
-      console.log(action.data)
       for (const [index, value] of action.data.dataset.entries()) {
         action.data.dataset[index]['color'] = obj.labels[index].color;
       }
@@ -60,13 +59,7 @@ export const reducer = (state = [{labels:[], data:{scale:[], dataset:[]}, items:
       array[0] = obj;
       return array;
     }
-    case 'ERROR': {
-    let array = [...state];
 
-console.log(action.e)
-
-    return array;
-    }
     case ERROR_RESP: {
       let array = [...state];
       let obj = array[0];
