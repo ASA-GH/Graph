@@ -24,9 +24,9 @@ public class DatasetController implements Manager {
         return combine.getDataset().toString();
     }
 
-    @RequestMapping(value = "/labels", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/labels", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String getLabels(@RequestParam MultiValueMap<String, String> queryMap) throws Exception {
+    public String getLabels() throws Exception {
         final Combine combine = new Combine(Map.of("labels", (Object) labels));
         return combine.getLabels();
     }
