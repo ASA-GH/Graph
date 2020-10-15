@@ -18,15 +18,6 @@
   justify-items: center;
   align-items: center;
 }
-.wrapperControl{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 100%;
-  align-items: center;
-  justify-items: center;
-  width: 200px;
-  height: 10%;
-}
 .wrapperChips{
   display: grid;
   max-width: 90vw;
@@ -39,6 +30,15 @@
   display:  flex;
   overflow-x: auto;
   max-width: 60vw;
+}
+.wrapperControl{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100%;
+  align-items: center;
+  justify-items: center;
+  width: 200px;
+  height: 10%;
 }
 .wrapperTimer{
   align-items: center;
