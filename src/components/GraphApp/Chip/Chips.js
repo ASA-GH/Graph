@@ -2,25 +2,24 @@ import React,{useMemo} from "react";
 import Chip from './Chip';
 import Card from '../Card/Card'
 import './Chip.css'
-import { useSelector } from 'react-redux'
 
-const Chips = () => {
-  const chips = useSelector(state => state)
-  const useMemoChips = useMemo(() => {
-  return (
-    <Card wrapperChips >
-      <Card innerChips >
-        {
-          chips[0].labels.map(chip => (!chip.error ?
-            <Chip key={chip.id} chip={chip} />
-            :
-            alert('Error: ' + chip.title)
-          ))
-        }
+const Chips = (props) => {
+  const { chips, onDeleteChip } = props;
+
+  return useMemo(() => {
+    return (
+      <Card wrapperChips >
+        <Card innerChips >
+        { chips &&
+            chips.map(chip => (!chip.error ?
+              <Chip key={chip.id} chip={chip} onDeleteChip={onDeleteChip}/>
+              :
+              alert('Error: ' + chip.title)
+            ))
+          }
+        </Card>
       </Card>
-    </Card>
-  );
-}, [chips[0].labels]);
-return useMemoChips;
+    );
+  }, [chips]);
 };
 export default Chips;
